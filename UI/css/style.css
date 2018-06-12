@@ -1,21 +1,20 @@
-body {
-  font: 16px/1.1 Ubuntu, Helvetica, sans-serif;
-  padding: 0;
-  margin: 0;
-  background-color: #fefefe;
-}
-
 /* Globals */
 .container {
   width: 90%;
   margin: auto;
   overflow: hidden;
 }
+body {
+  font: 16px/1.1 Ubuntu, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #fefefe;
+}
 ul {
+  list-style: none;
   margin: 0;
   padding: 0;
 }
-
 a {
   text-decoration: none;
 }
@@ -62,10 +61,17 @@ header .brand-center {
   justify-content: center;
   align-items: center;
 }
+#menu-icon {
+  display: hidden;
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  background: url('../img/icon.svg');
+}
 
 /* Hero */
 .hero {
-  background: url('../img/trading-1.jpg') no-repeat 0 -300px ;
+  background: url('http://res.cloudinary.com/lauragift/image/upload/v1528810037/trading-1_avqrra.jpg') no-repeat -0px;
   background-size: 100%;
   height: 400px;
   text-align: center;
@@ -76,7 +82,6 @@ header .brand-center {
   margin-bottom: 20px;
   color: #ffffff;
  }
-
 .hero p {
   color: #ffffff;
   font-size: 23px;
@@ -85,15 +90,19 @@ header .brand-center {
  /* feature */
 #feature {
   background-color: #ffffff;
-  margin: 20px 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#feature .box {
+.box {
   color: #413c3c;
-  float: left;
   width: 30%;
   padding: 20px;
   text-align: center;
+}
+.title {
+  text-align: center;
+  font-size: 39px;
 }
 
 /* SignUp form */
@@ -120,7 +129,6 @@ header .brand-center {
   padding: 20px;
   color: #413c3c;
 }
-
 .tablinks:hover {
   background: #ddd;
   border-radius: 10%;
@@ -161,9 +169,89 @@ header .brand-center {
   background: #054752;
   box-shadow: none;
 }
+
 /* footer */
 .copyright {
   background: #0a0707;
   text-align: center;
   color: #ffffff;
+}
+
+/* media queries */
+@media only screen and (max-width: 640px) {
+  header {
+    position: relative;
+    height: 7px;
+  }
+  .head {
+    height: 50px;
+  }
+  #menu-icon {
+    display: inline-block;
+  }
+  nav ul, nav ul:hover {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background: #eee;
+    right: 10px;
+    top: 60px;
+    width: 70px;
+    border-radius: 4px 0 4px 4px;
+  }
+  li {
+    float: none;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    margin: 30px;
+  }
+
+  header nav li:hover {
+    display: inline-block;
+  }
+
+  /* hero */
+  .hero h1 {
+    font-size: 40px;
+    margin: 2.8em 0 0 0;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  /* feature */
+  .title {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  #feature {
+    display: flex;
+    flex-direction: column;
+  }
+  #feature .box {
+    width: 80%;
+  }
+  /* signin */
+  .tabarea {
+    padding: 20px;
+  }
+  .form-header {
+    font-size: 18px;
+  }
+  .text-input {
+    width: 12em;
+    height: 2em;
+    margin-bottom: 8px;
+  }
+  .text-email {
+    width: 12em;
+    height: 2em;
+  }
+  .btn {
+    width: 10em;
+  }
+  .copyright {
+    min-height: 10vh;
+  }
 }
