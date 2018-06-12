@@ -1,0 +1,169 @@
+body {
+  font: 16px/1.1 Ubuntu, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #fefefe;
+}
+
+/* Globals */
+.container {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+button {
+  border: none;
+  background: #054752;
+  width: 7.79rem;
+  height: 2.94rem;
+  color: #ffffff;
+  border-radius: 9px;
+  font-size: 18px;
+  cursor: pointer;
+}
+button:focus {
+  outline:0;
+}
+
+/* Nav */
+header {
+  background: #ffffff;
+  max-height: 70px;
+}
+header a {
+  color: #054752;
+  text-decoration: none;
+}
+header li {
+  display: inline;
+  padding: 0 8px;
+}
+header #brand {
+  float: left;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+header nav {
+  float: right;
+  margin: 10px 0;
+  font-size: 18px;
+}
+header .brand-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hero */
+.hero {
+  background: url('../img/trading-1.jpg') no-repeat 0 -300px ;
+  background-size: 100%;
+  height: 400px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 80px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: #ffffff;
+ }
+
+.hero p {
+  color: #ffffff;
+  font-size: 23px;
+}
+
+ /* feature */
+#feature {
+  background-color: #ffffff;
+  margin: 20px 0;
+  display: flex;
+}
+#feature .box {
+  color: #413c3c;
+  float: left;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+}
+
+/* SignUp form */
+.signup {
+  margin-top: 30px;
+  background: #f4f4ef;
+}
+/* tabs */
+.tabarea{
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 40px;
+  background: #ffffff;
+  box-shadow: 2px 2px 3px 0 rgba(117, 124, 129, 0.12);
+}
+.tab {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tablinks {
+  cursor: pointer;
+  padding: 20px;
+  color: #413c3c;
+}
+
+.tablinks:hover {
+  background: #ddd;
+  border-radius: 10%;
+}
+.form-header {
+  font-size: 30px;
+  text-align: center;
+}
+.form {
+  text-align: center;
+}
+.form-group {
+  padding: 20px;
+}
+.text-input {
+  background: #ffffff;
+  padding:0.4em;
+  margin-left: 3px;
+  width: 25em;
+  height: 2.3rem;
+  outline-color: #054752;
+}
+.text-email {
+  width: 51em;
+  padding: 0.4rem;
+  outline-color: #054752;
+  height: 2.3rem;
+}
+.button {
+  text-align: center;
+}
+.btn {
+  background: #1a7d8f;
+  width: 30em;
+  box-shadow: 0 3px  0 4px  rgba(204, 204, 204, 0.185);
+}
+.btn:hover {
+  background: #054752;
+  box-shadow: none;
+}
+/* footer */
+.copyright {
+  background: #0a0707;
+  text-align: center;
+  color: #ffffff;
+}
