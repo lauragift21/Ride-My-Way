@@ -22,7 +22,7 @@ button {
   border: none;
   background: #054752;
   width: 7.79rem;
-  height: 2.94rem;
+  height: 2.76rem;
   color: #ffffff;
   border-radius: 9px;
   font-size: 18px;
@@ -30,6 +30,28 @@ button {
 }
 button:focus {
   outline:0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+.text-center {
+  color: #ffffff;
+  text-align: center;
+  font-size: 40px;
+  padding: 0;
 }
 
 /* Nav */
@@ -41,19 +63,22 @@ header a {
   color: #054752;
   text-decoration: none;
 }
+header ul {
+  list-style: none;
+}
 header li {
   display: inline;
-  padding: 0 8px;
+  padding: 0 10px;
 }
 header #brand {
   float: left;
-  margin: 0;
+  margin-top: 1.4em;
   padding: 0;
   font-size: 18px;
 }
 header nav {
   float: right;
-  margin: 10px 0;
+  margin: 22px 0;
   font-size: 18px;
 }
 header .brand-center {
@@ -63,7 +88,6 @@ header .brand-center {
 }
 #menu-icon {
   display: hidden;
-  margin-top: 10px;
   width: 40px;
   height: 40px;
   background: url('../img/icon.svg');
@@ -177,11 +201,45 @@ header .brand-center {
   color: #ffffff;
 }
 
+/* rides */
+.ride {
+  background: url('../img/street-3169981_960_720.jpg');
+  background-size: 100%;
+}
+.card {
+  background: #ffffffd9;
+  width: 90%;
+  margin: 40px;
+}
+.card-header {
+  background: #161414c6;
+  color: #ffffff;
+  padding: 30px ;
+  cursor: pointer;
+  text-align: right;
+}
+.card-header a {
+  padding: 0 10px;
+  color: #ffffff;
+}
+
+.rides-list {
+  overflow-x:auto;
+}
+
+.table-icon {
+  width: 30px;
+  background: #ffffff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 /* media queries */
 @media only screen and (max-width: 640px) {
   header {
     position: relative;
     height: 7px;
+    border-bottom: hidden;
   }
   .head {
     height: 50px;
@@ -189,26 +247,25 @@ header .brand-center {
   #menu-icon {
     display: inline-block;
   }
-  nav ul, nav ul:hover {
+  nav ul, nav:active ul {
     display: none;
     position: absolute;
     padding: 20px;
     background: #eee;
-    right: 10px;
-    top: 60px;
-    width: 70px;
-    border-radius: 4px 0 4px 4px;
+    right: 20px;
+		top: 60px;
+		width: 50%;
+    border: 1px solid #444;
   }
-  li {
-    float: none;
+  nav li {
     text-align: center;
     width: 100%;
-    padding: 10px 0;
-    margin: 30px;
+    padding-top: 18px;
+    display: block;
   }
 
-  header nav li:hover {
-    display: inline-block;
+   nav:hover ul {
+    display: block;
   }
 
   /* hero */
