@@ -39,7 +39,7 @@ table {
 }
 
 th, td {
-  text-align: left;
+  text-align: center;
   padding: 16px;
 }
 
@@ -63,10 +63,10 @@ header a {
   color: #054752;
   text-decoration: none;
 }
-header ul {
+ ul {
   list-style: none;
 }
-header li {
+ li {
   display: inline;
   padding: 0 10px;
 }
@@ -86,8 +86,8 @@ header .brand-center {
   justify-content: center;
   align-items: center;
 }
-#menu-icon {
-  display: hidden;
+.menu-icon {
+  display: none;
   width: 40px;
   height: 40px;
   background: url('../img/icon.svg');
@@ -222,30 +222,66 @@ header .brand-center {
   padding: 0 10px;
   color: #ffffff;
 }
-
 .rides-list {
   overflow-x:auto;
 }
-
-.table-icon {
-  width: 30px;
-  background: #ffffff;
-  border-radius: 3px;
-  cursor: pointer;
+.ride-success {
+  border-radius: 10px;
+  background: #3b8686;
+}
+.ride-error {
+  border-radius: 10px;
+  background: #f01616;
 }
 
+/* Profile */
+.profile {
+  height: 82vh;
+  display: flex;
+  justify-content: center;
+}
+.portfolio {
+  text-align: center;
+  height: 50vh;
+  margin: 20px;
+  padding: 30px;
+  color: #ffffff;
+  background: #05050567;
+}
+.ride-count {
+  display: inline;
+  padding: 20px;
+  font-size: 30px;
+}
+.num {
+  background: #3b8686;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #222222b7;
+  font-size: 40px;
+}
+.ride-details {
+  text-align: left;
+}
+.img {
+  height: 200px;
+  border-radius: 250px;
+}
 /* media queries */
 @media only screen and (max-width: 640px) {
   header {
     position: relative;
-    height: 7px;
-    border-bottom: hidden;
   }
   .head {
     height: 50px;
   }
-  #menu-icon {
+  .top-nav {
+    height: 7px;
+  }
+  .menu-icon {
     display: inline-block;
+    color: #054752;
   }
   nav ul, nav:active ul {
     display: none;
@@ -263,11 +299,9 @@ header .brand-center {
     padding-top: 18px;
     display: block;
   }
-
-   nav:hover ul {
+  nav:hover ul {
     display: block;
   }
-
   /* hero */
   .hero h1 {
     font-size: 40px;
@@ -310,5 +344,31 @@ header .brand-center {
   }
   .copyright {
     min-height: 10vh;
+  }
+  /* card */
+  .card {
+    width: 90%;
+    margin: 10px;
+  }
+  .card-header {
+    text-align: left;
+  }
+  .portfolio {
+    display: block;
+    background-size: 100%;
+  }
+  .profile {
+    height: 100%;
+    display: block;
+  }
+  .num {
+    display: inline;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .ride-count {
+    display: block;
+    padding: 10px;
+    font-size: 20px;
   }
 }
