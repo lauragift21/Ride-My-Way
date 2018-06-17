@@ -17,6 +17,7 @@ ul {
 }
 a {
   text-decoration: none;
+  color: #054752;
 }
 button {
   border: none;
@@ -126,6 +127,7 @@ header .brand-center {
 }
 .title {
   text-align: center;
+  color: #0a0707;
   font-size: 39px;
 }
 
@@ -236,11 +238,18 @@ header .brand-center {
 
 /* Profile */
 .profile {
-  height: 82vh;
   display: flex;
   justify-content: center;
 }
 .portfolio {
+  text-align: center;
+  height: auto;
+  margin: 20px;
+  padding: 30px;
+  color: #ffffff;
+  background: #05050567;
+}
+.portfolio-card {
   text-align: center;
   height: 50vh;
   margin: 20px;
@@ -268,6 +277,14 @@ header .brand-center {
   height: 200px;
   border-radius: 250px;
 }
+.card-details {
+  background: #f5f4f4;
+  padding: 10px 3px;
+  color: #054752;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
 /* media queries */
 @media only screen and (max-width: 640px) {
   header {
@@ -289,8 +306,8 @@ header .brand-center {
     padding: 20px;
     background: #eee;
     right: 20px;
-		top: 60px;
-		width: 50%;
+    top: 60px;
+    width: 50%;
     border: 1px solid #444;
   }
   nav li {
