@@ -4,9 +4,9 @@
   "description": "Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon babel dist/app.js",
     "build": "rimraf dist && babel server -d dist",
     "start": "yarn run build && node dist/app.js",
+    "dev": "nodemon server/app.js --exec babel-node",
     "lint": "./node_modules/.bin/eslint server",
     "test": " nyc mocha --require babel-register server/test/*",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -23,12 +23,18 @@
   },
   "homepage": "https://github.com/lauragift21/Ride-My-Way#readme",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "express": "4.16.3"
   },
   "devDependencies": {
-    "babel-cli": "6.26.0",
+    "@babel/node": "^7.0.0-beta.51",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "1.7.0",
     "chai": "4.1.2",
+    "codeclimate-test-reporter": "^0.5.0",
     "coveralls": "^3.0.1",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "12.1.0",
