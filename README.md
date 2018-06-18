@@ -1,5 +1,7 @@
 # Ride-My-Way
 
+![travis badge](https://travis-ci.org/lauragift21/Ride-My-Way.svg?branch=ch-travis-setup-%23158419338)
+
 Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
 Required Features
