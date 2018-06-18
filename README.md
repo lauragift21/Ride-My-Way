@@ -1,8 +1,6 @@
 # Ride-My-Way
 
-![travis badge](https://travis-ci.org/lauragift21/Ride-My-Way.svg?branch=ch-travis-setup-%23158419338)
-
-[![Coverage Status](https://coveralls.io/repos/github/lauragift21/Ride-My-Way/badge.svg?branch=ch-coveralls-setup-%23158419349)](https://coveralls.io/github/lauragift21/Ride-My-Way?branch=ch-coveralls-setup-%23158419349)
+[![travis badge](https://travis-ci.org/lauragift21/Ride-My-Way.svg?branch=ch-travis-setup-%23158419338) ![Coverage Status](https://coveralls.io/repos/github/lauragift21/Ride-My-Way/badge.svg?branch=ch-coveralls-setup-%23158419349)](https://coveralls.io/github/lauragift21/Ride-My-Way?branch=ch-coveralls-setup-%23158419349)
 
 Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
