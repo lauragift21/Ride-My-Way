@@ -1,0 +1,391 @@
+/* Globals */
+.container {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+body {
+  font: 16px/1.1 Ubuntu, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #fefefe;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #054752;
+}
+button {
+  border: none;
+  background: #054752;
+  width: 7.79rem;
+  height: 2.76rem;
+  color: #ffffff;
+  border-radius: 9px;
+  font-size: 18px;
+  cursor: pointer;
+}
+button:focus {
+  outline:0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: center;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+.text-center {
+  color: #ffffff;
+  text-align: center;
+  font-size: 40px;
+  padding: 0;
+}
+
+/* Nav */
+header {
+  background: #ffffff;
+  max-height: 70px;
+}
+header a {
+  color: #054752;
+  text-decoration: none;
+}
+ ul {
+  list-style: none;
+}
+ li {
+  display: inline;
+  padding: 0 10px;
+}
+header #brand {
+  float: left;
+  margin-top: 1.4em;
+  padding: 0;
+  font-size: 18px;
+}
+header nav {
+  float: right;
+  margin: 22px 0;
+  font-size: 18px;
+}
+header .brand-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-icon {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url('../img/icon.svg');
+}
+
+/* Hero */
+.hero {
+  background: url('http://res.cloudinary.com/lauragift/image/upload/v1528810037/trading-1_avqrra.jpg') no-repeat -0px;
+  background-size: 100%;
+  height: 400px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 80px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: #ffffff;
+ }
+.hero p {
+  color: #ffffff;
+  font-size: 23px;
+}
+
+ /* feature */
+#feature {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  color: #413c3c;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+}
+.title {
+  text-align: center;
+  color: #0a0707;
+  font-size: 39px;
+}
+
+/* SignUp form */
+.signup {
+  margin-top: 30px;
+  background: #f4f4ef;
+}
+/* tabs */
+.tabarea{
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 40px;
+  background: #ffffff;
+  box-shadow: 2px 2px 3px 0 rgba(117, 124, 129, 0.12);
+}
+.tab {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tablinks {
+  cursor: pointer;
+  padding: 20px;
+  color: #413c3c;
+}
+.tablinks:hover {
+  background: #ddd;
+  border-radius: 10%;
+}
+.form-header {
+  font-size: 30px;
+  text-align: center;
+}
+.form {
+  text-align: center;
+}
+.form-group {
+  padding: 20px;
+}
+.text-input {
+  background: #ffffff;
+  padding:0.4em;
+  margin-left: 3px;
+  width: 25em;
+  height: 2.3rem;
+  outline-color: #054752;
+}
+.text-email {
+  width: 51em;
+  padding: 0.4rem;
+  outline-color: #054752;
+  height: 2.3rem;
+}
+.button {
+  text-align: center;
+}
+.btn {
+  background: #1a7d8f;
+  width: 30em;
+  box-shadow: 0 3px  0 4px  rgba(204, 204, 204, 0.185);
+}
+.btn:hover {
+  background: #054752;
+  box-shadow: none;
+}
+
+/* footer */
+.copyright {
+  background: #0a0707;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* rides */
+.ride {
+  background: url('../img/street-3169981_960_720.jpg');
+  background-size: 100%;
+}
+.card {
+  background: #ffffffd9;
+  width: 90%;
+  margin: 40px;
+}
+.card-header {
+  background: #161414c6;
+  color: #ffffff;
+  padding: 30px ;
+  cursor: pointer;
+  text-align: right;
+}
+.card-header a {
+  padding: 0 10px;
+  color: #ffffff;
+}
+.rides-list {
+  overflow-x:auto;
+}
+.ride-success {
+  border-radius: 10px;
+  background: #3b8686;
+}
+.ride-error {
+  border-radius: 10px;
+  background: #f01616;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  justify-content: center;
+}
+.portfolio {
+  text-align: center;
+  height: auto;
+  margin: 20px;
+  padding: 30px;
+  color: #ffffff;
+  background: #05050567;
+}
+.portfolio-card {
+  text-align: center;
+  height: 50vh;
+  margin: 20px;
+  padding: 30px;
+  color: #ffffff;
+  background: #05050567;
+}
+.ride-count {
+  display: inline;
+  padding: 20px;
+  font-size: 30px;
+}
+.num {
+  background: #3b8686;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #222222b7;
+  font-size: 40px;
+}
+.ride-details {
+  text-align: left;
+}
+.img {
+  height: 200px;
+  border-radius: 250px;
+}
+.card-details {
+  background: #f5f4f4;
+  padding: 10px 3px;
+  color: #054752;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+/* media queries */
+@media only screen and (max-width: 640px) {
+  header {
+    position: relative;
+  }
+  .head {
+    height: 50px;
+  }
+  .top-nav {
+    height: 7px;
+  }
+  .menu-icon {
+    display: inline-block;
+    color: #054752;
+  }
+  nav ul, nav:active ul {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background: #eee;
+    right: 20px;
+    top: 60px;
+    width: 50%;
+    border: 1px solid #444;
+  }
+  nav li {
+    text-align: center;
+    width: 100%;
+    padding-top: 18px;
+    display: block;
+  }
+  nav:hover ul {
+    display: block;
+  }
+  /* hero */
+  .hero h1 {
+    font-size: 40px;
+    margin: 2.8em 0 0 0;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  /* feature */
+  .title {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  #feature {
+    display: flex;
+    flex-direction: column;
+  }
+  #feature .box {
+    width: 80%;
+  }
+  /* signin */
+  .tabarea {
+    padding: 20px;
+  }
+  .form-header {
+    font-size: 18px;
+  }
+  .text-input {
+    width: 12em;
+    height: 2em;
+    margin-bottom: 8px;
+  }
+  .text-email {
+    width: 12em;
+    height: 2em;
+  }
+  .btn {
+    width: 10em;
+  }
+  .copyright {
+    min-height: 10vh;
+  }
+  /* card */
+  .card {
+    width: 90%;
+    margin: 10px;
+  }
+  .card-header {
+    text-align: left;
+  }
+  .portfolio {
+    display: block;
+    background-size: 100%;
+  }
+  .profile {
+    height: 100%;
+    display: block;
+  }
+  .num {
+    display: inline;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .ride-count {
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+  }
+}
