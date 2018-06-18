@@ -8,7 +8,8 @@
     "build": "rimraf dist && babel server -d dist",
     "start": "yarn run build && node dist/app.js",
     "lint": "./node_modules/.bin/eslint server",
-    "test": " nyc mocha  --require babel-register server/test/*"
+    "test": " nyc mocha --require babel-register server/test/*",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
