@@ -1,4 +1,4 @@
-const rides = [
+const db = [
   {
     id: 1,
     from: 'Surulere',
@@ -37,4 +37,4 @@ const rides = [
   },
 ];
 
-export default rides;
+export default db;
