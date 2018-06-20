@@ -1,7 +1,25 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+import logger from 'morgan';
+import dotenv from 'dotenv';
+import router from './routes';
+
+//  import dotenv config
+dotenv.config();
 
 const app = express();
 
-app.get('/', (req, res) => res.status(200).json({ message: 'app has started successfully' }));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(3000, () => console.log('App running at port 3000'));
+// set router instance
+app.use('/api/v1/', router);
+
+const port = process.env.PORT || 8080;
+// listen for running server
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
+
+export default app;
