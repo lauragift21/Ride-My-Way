@@ -30,7 +30,7 @@ export default {
     const rideOffer = rideOffers.find(ride => ride.id === parseInt(rideId, 10));
     if (rideOffer === undefined) {
       return res.status(404).json({
-        message: 'No ride with specified id found'
+        message: 'No ride with specified id found',
       });
     }
     return res.status(200).json(rideOffer);
@@ -66,5 +66,16 @@ export default {
    * @param {object} res
    * @returns {object} json data
    */
-  joinRide: (req, res) => {}
+  joinRide: (req, res) => {
+    const { rideId } = req.params;
+    const rideOffer = rideOffers.find(ride => ride.id === parseInt(rideId, 10));
+    if (rideOffer !== undefined) {
+      res.status(201).json({
+        message: 'Rider added successfully',
+      });
+    }
+    return res.status(404).json({
+      message: 'No ride available. Please check back later',
+    });
+  },
 };
