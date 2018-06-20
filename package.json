@@ -6,8 +6,9 @@
   "scripts": {
     "build": "rimraf dist && babel server -d dist",
     "start": "yarn run build && node dist/app.js",
-    "dev": "nodemon server/app.js --exec babel-node",
+    "start:dev": "NODE_ENV=development nodemon server/app.js --exec babel-node",
     "lint": "./node_modules/.bin/eslint server",
+    "lint:fix": "./node_modules/.bin/eslint server --fix",
     "test": " nyc mocha --require babel-register server/test/*",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -26,7 +27,8 @@
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
-    "express": "4.16.3"
+    "express": "4.16.3",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
     "@babel/node": "^7.0.0-beta.51",
