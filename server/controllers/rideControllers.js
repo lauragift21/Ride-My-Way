@@ -33,7 +33,10 @@ export default {
         message: 'No ride with specified id found',
       });
     }
-    return res.status(200).json(rideOffer);
+    return res.status(200).json({
+      message: 'Ride retrieved successfully',
+      rideOffer,
+    });
   },
   /**
    * createRide: This endpoint create a ride offer
@@ -69,13 +72,13 @@ export default {
   joinRide: (req, res) => {
     const { rideId } = req.params;
     const rideOffer = rideOffers.find(ride => ride.id === parseInt(rideId, 10));
-    if (rideOffer !== undefined) {
-      res.status(201).json({
-        message: 'Rider added successfully',
+    if (rideOffer == undefined) {
+      return res.status(404).json({
+        message: 'No ride available. Please check back later',
       });
     }
-    return res.status(404).json({
-      message: 'No ride available. Please check back later',
+    return res.status(201).json({
+      message: 'Rider added successfully',
     });
   },
 };
