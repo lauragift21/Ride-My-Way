@@ -4,7 +4,6 @@
   "description": "Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.",
   "main": "app.js",
   "scripts": {
-    "prebuild": "rimraf dist",
     "build": "babel server -d dist",
     "start": "yarn run build && node dist/app.js",
     "start:dev": "cross-env NODE_ENV=development nodemon server/app.js --exec babel-node",
