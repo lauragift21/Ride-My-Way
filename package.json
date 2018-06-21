@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "babel server -d dist",
-    "start": "yarn run build && node dist/app.js",
+    "start": "npm run build && node dist/app.js",
     "start:dev": "cross-env NODE_ENV=development nodemon server/app.js --exec babel-node",
     "lint": "./node_modules/.bin/eslint server",
     "lint:fix": "./node_modules/.bin/eslint server --fix",
