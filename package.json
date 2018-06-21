@@ -10,7 +10,7 @@
     "start:dev": "cross-env NODE_ENV=development nodemon server/app.js --exec babel-node",
     "lint": "./node_modules/.bin/eslint server",
     "lint:fix": "./node_modules/.bin/eslint server --fix",
-    "test": "cross-env NODE_ENV=test nyc mocha --require babel-register server/test/* --exit",
+    "test": "nyc mocha --require babel-register server/test/* --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {

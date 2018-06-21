@@ -6,8 +6,6 @@ env:
   global:
     - CC_TEST_REPORTER_ID=8cbbb5692d02c0d5b9e7cf10caf6604306bff5db53f9d72afb965fb3dd7e45dc\
 
-install: [ "yarn install"]
-
 before_script:
   - yarn global add nyc
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
