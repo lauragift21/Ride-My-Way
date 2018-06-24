@@ -4,7 +4,7 @@
 
 Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
-### Required Features
+#### Required Features
 
 - Users can create an account and log in.
 - Drivers can add ride offers..
@@ -14,34 +14,54 @@ the ride leaves, where it is headed e.t.c
 - Drivers can view the requests to the ride offer they created.
 - Drivers can either accept or reject a ride request.
 
-### Optional Features
+#### Optional Features
 
 - Users can only see and respond to ride offers from their friends on the application .
 - Passengers get real time notifications when their request is accepted or rejected
 
-### Technologies
-_____
+#### Technologies
 - Nodejs
 - Express
 - Mocha, Chai, Babel, eslint
 
-### Build Setup
+
+#### API ENDPOINTS
+| Endpoint | Functionality |
+|----------| ------------- |
+| GET /rides | Fetch all rides |
+| GET /rides/\<rideId> | Fetch a single ride offer |
+| POST /rides | Create a Ride offer |
+| POST /rides/\<rideId>/requests | Make a request to join a ride |
+
+#### Build Setup
 
 ```
 clone repo and cd into directory
 
+git clone https://github.com/lauragift21/Ride-My-Way.git
+```
+```
 # install dependencies
-yarn install #or npm install
+yarn install # or npm install
 
 #serve in development environment
 yarn run dev
 
 # build for production
 yarn run build
-
-# test
-yarn run test
-
-# lint code
-yarn run lint:fix
 ```
+
+#### RUNNING TESTS
+
+```
+# Run test cases 
+npm test
+```
+
+#### AUTHOR
+
+[EGWUENU GIFT](https://github.com/lauragift21)
+
+#### LICENSE
+
+Ride My Way is [MIT licensed](https://github.com/lauragift21/Ride-My-Way/blob/develop/LICENSE)
