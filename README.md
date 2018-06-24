@@ -4,7 +4,7 @@
 
 Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
-#### Required Features
+## Required Features
 
 - Users can create an account and log in.
 - Drivers can add ride offers..
@@ -14,18 +14,17 @@ the ride leaves, where it is headed e.t.c
 - Drivers can view the requests to the ride offer they created.
 - Drivers can either accept or reject a ride request.
 
-#### Optional Features
+## Optional Features
 
 - Users can only see and respond to ride offers from their friends on the application .
 - Passengers get real time notifications when their request is accepted or rejected
 
-#### Technologies
+## Technologies
 - Nodejs
 - Express
 - Mocha, Chai, Babel, eslint
 
-
-#### API ENDPOINTS
+## API Endpoints
 | Endpoint | Functionality |
 |----------| ------------- |
 | GET /rides | Fetch all rides |
@@ -33,7 +32,7 @@ the ride leaves, where it is headed e.t.c
 | POST /rides | Create a Ride offer |
 | POST /rides/\<rideId>/requests | Make a request to join a ride |
 
-#### Build Setup
+## Build Setup
 
 ```
 clone repo and cd into directory
@@ -51,17 +50,17 @@ yarn run dev
 yarn run build
 ```
 
-#### RUNNING TESTS
+## Testing
 
 ```
 # Run test cases 
-npm test
+yarn test
 ```
 
-#### AUTHOR
+## AUTHOR
 
 [EGWUENU GIFT](https://github.com/lauragift21)
 
-#### LICENSE
+## LICENSE
 
 Ride My Way is [MIT licensed](https://github.com/lauragift21/Ride-My-Way/blob/develop/LICENSE)
