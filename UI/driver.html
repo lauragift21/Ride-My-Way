@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.ico">
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -36,20 +38,23 @@
       <h1 class="text-center">Dashboard</h1>
       <div class="card">
         <div class="card-header">
-            <nav>
-                <a href="#" class="menu-icon"></a>
-                <ul>
-                  <li>
-                    <a href="./driver.html">Driver</a>
-                  </li>
-                  <li>
-                    <a href="./rides.html">Available Rides</a>
-                  </li>
-                  <li>
-                    <a href="./offerrides.html">Create Ride Offer</a>
-                  </li>
-                </ul>
-              </nav>
+          <nav>
+            <a href="#" class="menu-icon"></a>
+            <ul>
+              <li>
+                <input type="search" name="search" placeholder="search rides.."  class="search-ride">
+              </li>
+              <li>
+                <a href="./driver.html">Driver</a>
+              </li>
+              <li>
+                <a href="./rides.html">Available Rides</a>
+              </li>
+              <li>
+                <a href="./offerrides.html">Create Ride Offer</a>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div class="card-content">
           <div class="rides-list">
@@ -59,18 +64,15 @@
                 <th>Location</th>
                 <th>Destination</th>
                 <th>Departure time</th>
-                <th>Price</th>
-                <th>Ride Offer</th>
+                <th></th>
               </tr>
               <tr class="row">
                 <td>Ade Bamiro</td>
                 <td> Yaba Left </td>
                 <td> Agege </td>
                 <td> 3-07-2018 4PM</td>
-                <th> $20.00</th>
                 <td>
-                  <button class="ride-success">Accept</button>
-                  <button class="ride-error">Reject</button>
+                  <button class="ride-success">Ride Details</button>
                 </td>
               </tr>
               <tr class="row">
@@ -78,10 +80,8 @@
                 <td> Oshodi Island </td>
                 <td> Victoria Island </td>
                 <td> 3-07-2018 4PM</td>
-                <th> $20.00</th>
                 <td>
-                  <button class="ride-success">Accept</button>
-                  <button class="ride-error">Reject</button>
+                  <button class="ride-success">Ride Details</button>
                 </td>
               </tr>
               <tr class="row">
@@ -89,21 +89,17 @@
                 <td> Ikeja </td>
                 <td> Ajah </td>
                 <td> 3-07-2018 4PM</td>
-                <th> $20.00</th>
                 <td>
-                  <button class="ride-success">Accept</button>
-                  <button class="ride-error">Reject</button>
+                  <button class="ride-success">Ride Details</button>
                 </td>
               </tr>
               <tr class="row">
                 <td>Ade Bamiro</td>
-                <td> Ikorodu  </td>
-                <td> Ilesha  </td>
+                <td> Ikorodu </td>
+                <td> Ilesha </td>
                 <td> 3-07-2018 4PM</td>
-                <th> $20.00</th>
                 <td>
-                  <button class="ride-success">Accept</button>
-                  <button class="ride-error">Reject</button>
+                  <button class="ride-success">Ride Details</button>
                 </td>
               </tr>
               <tr class="row">
@@ -111,10 +107,8 @@
                 <td> Zaria </td>
                 <td> Jos </td>
                 <td> 3-07-2018 4PM</td>
-                <th> $20.00</th>
                 <td>
-                  <button class="ride-success">Accept</button>
-                  <button class="ride-error">Reject</button>
+                  <button class="ride-success">Ride Details</button>
                 </td>
               </tr>
             </table>
@@ -129,4 +123,5 @@
     </div>
   </footer>
 </body>
+
 </html>

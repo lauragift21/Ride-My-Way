@@ -225,6 +225,13 @@ header .brand-center {
   padding: 0 10px;
   color: #ffffff;
 }
+.search-ride {
+  border-radius: 5px;
+  padding: 7px;
+  border: none;
+  outline: none;
+  float: left;
+}
 .rides-list {
   overflow-x:auto;
 }
