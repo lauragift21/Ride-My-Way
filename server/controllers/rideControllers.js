@@ -14,6 +14,7 @@ export default {
   getAllRides: (req, res) => {
     res.status(200).json({
       rides: rideOffers,
+      message: 'All rides retrieved successfully',
     });
   },
   /**
@@ -78,7 +79,7 @@ export default {
       });
     }
     return res.status(201).json({
-      message: 'Rider added successfully',
+      message: 'Rider request successful',
     });
   },
 };
