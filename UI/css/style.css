@@ -225,13 +225,6 @@ header .brand-center {
   padding: 0 10px;
   color: #ffffff;
 }
-.search-ride {
-  border-radius: 5px;
-  padding: 7px;
-  border: none;
-  outline: none;
-  float: left;
-}
 .rides-list {
   overflow-x:auto;
 }
@@ -243,7 +236,24 @@ header .brand-center {
   border-radius: 10px;
   background: #f01616;
 }
-
+.trip {
+  text-align: center;
+  color: #0a0707;
+  padding: 20px;
+  background: #a7aaaa;
+  width: 70%;
+  height: 70vh;
+  margin: 20px auto;
+}
+.trip-btn {
+  width: 13em;
+  margin: 16px;
+}
+.trip-btn:hover {
+  background: #f2f2f2;
+  border: 1px solid #054752;
+  color: #0a0707;
+}
 /* Profile */
 .profile {
   display: flex;
