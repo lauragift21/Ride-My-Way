@@ -14,6 +14,7 @@ export default {
   getAllRides: (req, res) => {
     res.status(200).json({
       rides: rideOffers,
+      message: 'All rides retrieved successfully',
     });
   },
   /**
@@ -72,13 +73,13 @@ export default {
   joinRide: (req, res) => {
     const { rideId } = req.params;
     const rideOffer = rideOffers.find(ride => ride.id === parseInt(rideId, 10));
-    if (rideOffer == undefined) {
+    if (rideOffer === undefined) {
       return res.status(404).json({
         message: 'No ride available. Please check back later',
       });
     }
     return res.status(201).json({
-      message: 'Rider added successfully',
+      message: 'Rider request successful',
     });
   },
 };
