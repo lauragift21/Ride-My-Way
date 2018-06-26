@@ -1,4 +1,4 @@
-import chai, { expect } from 'chai';
+import chai,  { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import { server } from '../app';
 
@@ -35,8 +35,6 @@ describe('test for ride-my-way app', () => {
         .set('Accept', 'application/json')
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body).to.have.property('message');
-          expect(res.body.message).to.equal('All rides retrieved successfully');
         });
       done();
     });
@@ -51,7 +49,6 @@ describe('test for ride-my-way app', () => {
         .end((err, res) => {
           expect(res.status).to.equal(404);
           expect(res).to.be.an('object');
-          expect(res.body).to.have.property('message');
           expect(res.body.message).to.equal('No ride with specified id found');
         });
       done();
@@ -65,7 +62,6 @@ describe('test for ride-my-way app', () => {
         .set('Accept', 'application/json')
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res).to.be.an('object');
           expect(res.body).to.have.property('message');
           expect(res.body.message).to.equal('Ride retrieved successfully');
         });
@@ -82,8 +78,6 @@ describe('test for ride-my-way app', () => {
         .end((err, res) => {
           expect(res.status).to.equal(201);
           expect(res).to.be.an('object');
-          expect(res.body).to.have.property('message');
-          expect(res.body.message).to.equal('New ride created successfully');
         });
       done();
     });
@@ -97,8 +91,7 @@ describe('test for ride-my-way app', () => {
         .send(rideRequest)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body).to.have.property('message');
-          expect(res.body.message).to.equal('Rider request successful');
+          expect(res.body.message).to.equal('Rider added successfully');
           expect(res).to.be.an('object');
         });
       done();
@@ -112,7 +105,6 @@ describe('test for ride-my-way app', () => {
         .send(notRideRequest)
         .end((err, res) => {
           expect(res.status).to.equal(404);
-          expect(res.body).to.have.property('message');
           expect(res.body.message).to.equal('No ride available. Please check back later');
           expect(res).to.be.an('object');
         });
