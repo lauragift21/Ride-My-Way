@@ -225,6 +225,13 @@ header .brand-center {
   padding: 0 10px;
   color: #ffffff;
 }
+.search-ride {
+  border-radius: 5px;
+  padding: 7px;
+  border: none;
+  outline: none;
+  float: left;
+}
 .rides-list {
   overflow-x:auto;
 }
@@ -240,7 +247,7 @@ header .brand-center {
   text-align: center;
   color: #0a0707;
   padding: 20px;
-  background: #a7aaaa;
+  background: #ddd9d9d9;
   width: 70%;
   height: 70vh;
   margin: 20px auto;
@@ -254,6 +261,7 @@ header .brand-center {
   border: 1px solid #054752;
   color: #0a0707;
 }
+
 /* Profile */
 .profile {
   display: flex;
