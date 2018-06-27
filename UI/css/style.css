@@ -139,8 +139,9 @@ header .brand-center {
 /* tabs */
 .tabarea{
   border: 1px solid #ccc;
-  margin: 20px;
-  padding: 40px;
+  margin: 50px auto;
+  padding: 10px;
+  width: 50vw;
   background: #ffffff;
   box-shadow: 2px 2px 3px 0 rgba(117, 124, 129, 0.12);
 }
@@ -173,12 +174,12 @@ header .brand-center {
   background: #ffffff;
   padding:0.4em;
   margin-left: 3px;
-  width: 25em;
+  width: 15em;
   height: 2.3rem;
   outline-color: #054752;
 }
 .text-email {
-  width: 51em;
+  width: 31em;
   padding: 0.4rem;
   outline-color: #054752;
   height: 2.3rem;
@@ -188,7 +189,7 @@ header .brand-center {
 }
 .btn {
   background: #1a7d8f;
-  width: 30em;
+  width: 10em;
   box-shadow: 0 3px  0 4px  rgba(204, 204, 204, 0.185);
 }
 .btn:hover {
@@ -224,6 +225,13 @@ header .brand-center {
   padding: 0 10px;
   color: #ffffff;
 }
+.search-ride {
+  border-radius: 5px;
+  padding: 7px;
+  border: none;
+  outline: none;
+  float: left;
+}
 .rides-list {
   overflow-x:auto;
 }
@@ -234,6 +242,24 @@ header .brand-center {
 .ride-error {
   border-radius: 10px;
   background: #f01616;
+}
+.trip {
+  text-align: center;
+  color: #0a0707;
+  padding: 20px;
+  background: #ddd9d9d9;
+  width: 70%;
+  height: 70vh;
+  margin: 20px auto;
+}
+.trip-btn {
+  width: 13em;
+  margin: 16px;
+}
+.trip-btn:hover {
+  background: #f2f2f2;
+  border: 1px solid #054752;
+  color: #0a0707;
 }
 
 /* Profile */
