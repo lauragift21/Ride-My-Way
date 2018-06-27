@@ -50,15 +50,20 @@ export default {
   createRide: (req, res) => {
     const newRide = {
       id: rideOffers.length + 1,
-      from: req.body.from,
-      to: req.body.to,
+      location: req.body.location,
+      destination: req.body.destination,
       seats: req.body.seats,
       price: req.body.price,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
     rideOffers.push(newRide);
-    res.status(201).json({
+    if (rideOffers === undefined) {
+      return res.status(404).json({
+        message: 'Invalid Data',
+      });
+    }
+    return res.status(201).json({
       message: 'New ride created successfully',
       ride: newRide,
     });
