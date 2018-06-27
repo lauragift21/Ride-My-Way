@@ -88,9 +88,7 @@ describe('test for ride-my-way app', () => {
       chai
         .request(server)
         .post('/api/v1/rides')
-        .send({
-          location: 'ikeja',
-        })
+        .send(rideOffer)
         .end((err, res) => {
           expect(res.status).to.equal(201);
           expect(res).to.be.an('object');
