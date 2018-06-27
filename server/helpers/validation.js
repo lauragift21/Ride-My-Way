@@ -1,32 +1,36 @@
 /**
  * @description validate post ride
- * @param {object} req
- * @param {object} res
- * @param {object} next
+ * @param {object} req - The object that return a request
+ * @param {object} res - The object that returns a response
+ * @param {object} next- The object that tell the next action to run
  * @returns {object}
  */
 /*eslint-disable */
 export default {
   postRideValidation: (req, res, next) => {
-    if (req.body.from === undefined || req.body.from.toString().trim() === '') {
+    const {
+      location,
+      destination,
+      seats,
+      price
+    } = req.body;
+    console.log(req.body);
+    if ((!location) || location === undefined || location.toString().trim() === ' ' || typeof location !== 'string') {
       return res.status(400).send({
         valid: false,
         message: 'Ride location is required',
       });
-    }
-    if (req.body.to === undefined || req.body.to.toString().trim() === '') {
+    } else if ((!destination) || destination === undefined || destination.toString().trim() === ' ' || typeof destination !== 'string') {
       return res.status(400).send({
         valid: false,
         message: 'Ride destination is required',
       });
-    }
-    if (req.body.seats === undefined || (/\s/g).test(req.body.seats) === true) {
+    } else if ((!seats) || seats === undefined || (/\s/g).test(seats) === true ) {
       return res.status(400).send({
         valid: false,
         message: 'Number of seats is required',
       });
-    }
-    if (req.body.price === undefined || (/\s/g).test(req.body.price) === true) {
+    } else if ((!price) || price === undefined || (/\s/g).test(price) === true) {
       return res.status(400).send({
         valid: false,
         message: 'Price should not be empty',
