@@ -12,7 +12,6 @@ export default {
       location,
       destination,
       seats,
-      price
     } = req.body;
     if ((!location) || location === undefined || location.toString().trim() === '' || typeof location !== 'string') {
       return res.status(400).send({
@@ -28,11 +27,6 @@ export default {
       return res.status(400).send({
         valid: false,
         message: 'Number of seats is required',
-      });
-    } else if ((!price) || price === undefined || (/\s/g).test(price) === true) {
-      return res.status(400).send({
-        valid: false,
-        message: 'Price should not be empty',
       });
     }
     return next();

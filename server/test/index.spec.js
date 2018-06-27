@@ -13,7 +13,6 @@ describe('test for ride-my-way app', () => {
     location: 'Ikeja',
     destination: 'Oshodi',
     seats: 2,
-    price: 2000,
     createdAt: new Date(),
     updatedAt: new Date(),
   };
@@ -23,7 +22,6 @@ describe('test for ride-my-way app', () => {
     location: '    ',
     destination: 'Agege',
     seats: 2,
-    price: 2000,
     createdAt: new Date(),
     updatedAt: new Date(),
   };
