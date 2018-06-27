@@ -53,7 +53,6 @@ export default {
       location: req.body.location,
       destination: req.body.destination,
       seats: req.body.seats,
-      price: req.body.price,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
