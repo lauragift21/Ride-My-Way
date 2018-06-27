@@ -88,6 +88,7 @@ describe('test for ride-my-way app', () => {
       chai
         .request(server)
         .post('/api/v1/rides')
+        .type('form')
         .send(rideOffer)
         .end((err, res) => {
           expect(res.status).to.equal(201);
@@ -101,6 +102,7 @@ describe('test for ride-my-way app', () => {
       chai
         .request(server)
         .post('/api/v1/rides')
+        .type('form')
         .send(invalidRide)
         .end((err, res) => {
           console.log(res.body);
@@ -118,6 +120,7 @@ describe('test for ride-my-way app', () => {
       chai
         .request(server)
         .post('/api/v1/rides/3/requests')
+        .type('form')
         .send(rideRequest)
         .end((err, res) => {
           expect(res.status).to.equal(201);
@@ -131,6 +134,7 @@ describe('test for ride-my-way app', () => {
       chai
         .request(server)
         .post('/api/v1/rides/0/requests')
+        .type('form')
         .send(noRideRequest)
         .end((err, res) => {
           expect(res.status).to.equal(404);

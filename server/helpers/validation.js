@@ -14,13 +14,12 @@ export default {
       seats,
       price
     } = req.body;
-    console.log(req.body);
-    if ((!location) || location === undefined || location.toString().trim() === ' ' || typeof location !== 'string') {
+    if ((!location) || location === undefined || location.toString().trim() === '' || typeof location !== 'string') {
       return res.status(400).send({
         valid: false,
         message: 'Ride location is required',
       });
-    } else if ((!destination) || destination === undefined || destination.toString().trim() === ' ' || typeof destination !== 'string') {
+    } else if ((!destination) || destination === undefined || destination.toString().trim() === '' || typeof destination !== 'string') {
       return res.status(400).send({
         valid: false,
         message: 'Ride destination is required',
