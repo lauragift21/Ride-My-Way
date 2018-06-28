@@ -28,9 +28,11 @@ describe('test for ride-my-way app', () => {
 
   const rideRequest = {
     id: 3,
+    uid: 2,
   };
   const noRideRequest = {
     id: 0,
+    uid: 0,
   };
   /**
    * @description Test for all rides
@@ -96,7 +98,7 @@ describe('test for ride-my-way app', () => {
         });
       done();
     });
-    it('should respond with 400 Bad Request', (done) => {
+    it('should respond with 400 Bad Request with an invalid input', (done) => {
       chai
         .request(server)
         .post('/api/v1/rides')
