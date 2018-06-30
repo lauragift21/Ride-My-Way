@@ -1,6 +1,6 @@
-import db from '../models/rides';
+import rides from '../models/rides';
 
-const rideOffers = db;
+const rideOffers = rides;
 
 export default {
   /**

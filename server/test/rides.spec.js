@@ -35,6 +35,71 @@ describe('test for ride-my-way app', () => {
     uid: 0,
   };
   /**
+ * @description Test to Post a ride
+ */
+  describe('CREATE a new ride offer', () => {
+    it('should create a new ride offer with status code 201', (done) => {
+      chai
+        .request(server)
+        .post('/api/v1/rides')
+        .type('form')
+        .send(rideOffer)
+        .end((err, res) => {
+          expect(res.status).to.equal(201);
+          expect(res).to.be.an('object');
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('New ride created successfully');
+        });
+      done();
+    });
+    it('should respond with 400 Bad Request with an invalid input', (done) => {
+      chai
+        .request(server)
+        .post('/api/v1/rides')
+        .type('form')
+        .send(invalidRide)
+        .end((err, res) => {
+          console.log(res.body);
+          expect(res.status).to.equals(400);
+          expect(res).to.be.an('object');
+        });
+      done();
+    });
+  });
+  /**
+  * @description Test to post a ride request
+  */
+  describe('POST to join a ride offer', () => {
+    it('should POST a ride offer request with a specific id and return status 201', (done) => {
+      chai
+        .request(server)
+        .post('/api/v1/rides/3/requests')
+        .type('form')
+        .send(rideRequest)
+        .end((err, res) => {
+          expect(res.status).to.equal(201);
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('Rider request successfully');
+          expect(res).to.be.an('object');
+        });
+      done();
+    });
+    it('should return an error message when a ride that does not exist is requested', (done) => {
+      chai
+        .request(server)
+        .post('/api/v1/rides/0/requests')
+        .type('form')
+        .send(noRideRequest)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('No ride available. Please check back later');
+          expect(res).to.be.an('object');
+        });
+      done();
+    });
+  });
+  /**
    * @description Test for all rides
    */
   describe('GET all ride offers', () => {
@@ -80,69 +145,5 @@ describe('test for ride-my-way app', () => {
       done();
     });
   });
-  /**
-   * @description Test to Post a ride
-   */
-  describe('CREATE a new ride offer', () => {
-    it('should create a new ride offer with status code 201', (done) => {
-      chai
-        .request(server)
-        .post('/api/v1/rides')
-        .type('form')
-        .send(rideOffer)
-        .end((err, res) => {
-          expect(res.status).to.equal(201);
-          expect(res).to.be.an('object');
-          expect(res.body).to.have.property('message');
-          expect(res.body.message).to.equal('New ride created successfully');
-        });
-      done();
-    });
-    it('should respond with 400 Bad Request with an invalid input', (done) => {
-      chai
-        .request(server)
-        .post('/api/v1/rides')
-        .type('form')
-        .send(invalidRide)
-        .end((err, res) => {
-          console.log(res.body);
-          expect(res.status).to.equals(400);
-          expect(res).to.be.an('object');
-        });
-      done();
-    });
-  });
-  /**
-   * @description Test to post a ride request
-   */
-  describe('POST to join a ride offer', () => {
-    it('should POST a ride offer request with a specific id and return status 201', (done) => {
-      chai
-        .request(server)
-        .post('/api/v1/rides/3/requests')
-        .type('form')
-        .send(rideRequest)
-        .end((err, res) => {
-          expect(res.status).to.equal(201);
-          expect(res.body).to.have.property('message');
-          expect(res.body.message).to.equal('Rider request successfully');
-          expect(res).to.be.an('object');
-        });
-      done();
-    });
-    it('should return an error message when a ride that does not exist is requested', (done) => {
-      chai
-        .request(server)
-        .post('/api/v1/rides/0/requests')
-        .type('form')
-        .send(noRideRequest)
-        .end((err, res) => {
-          expect(res.status).to.equal(404);
-          expect(res.body).to.have.property('message');
-          expect(res.body.message).to.equal('No ride available. Please check back later');
-          expect(res).to.be.an('object');
-        });
-      done();
-    });
-  });
+
 });

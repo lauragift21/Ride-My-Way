@@ -1,4 +1,5 @@
 import Ride from './rideControllers';
+import User from './userControllers';
 
-export default { Ride };
+export { Ride, User };
 

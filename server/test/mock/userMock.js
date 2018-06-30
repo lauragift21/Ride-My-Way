@@ -1,60 +1,21 @@
 export default {
   validUserInfo: {
-    firstname: 'Gift',
-    lastname: 'Egwuenu',
-    email: 'laura@gmail.com',
+    firstname: 'John',
+    lastname: 'Doe',
+    email: 'jonedoe@gmail.com',
     location: 'Lagos, Nigeria',
     password: '123456',
   },
-  validUserDetails: {
-    firstname: 'Gift   ',
-    lastname: 'Egwuenu',
-    email: 'laura@gmail.com',
-    location: 'Lagos, Nigeria',
-    password: '123456',
-  },
-  emptyUserInfo: {
+  invalidUserInfo: {
     firstname: '',
-    lastname: '',
-    email: '',
-    location: '',
-    password: '',
+    lastname: 'Doe',
+    email: 'johndoe',
   },
-  invalidUserInfoEmail: {
-    firstname: 'Gift',
-    lastname: 'Egwuenu',
-    email: 'laura@.com',
-    location: 'Lagos, Nigeria',
+  validLoginDetails: {
+    email: 'johndoe@gmail.com',
     password: '123456',
   },
-  validUserInfoPassword: {
-    firstname: 'Gift',
-    lastname: 'Egwuenu',
-    email: 'laura@gmail.com',
-    location: 'Lagos, Nigeria',
-    password: '   123456',
-  },
-  invalidUserInfoPassword: {
-    firstname: 'Gift',
-    lastname: 'Egwuenu',
-    email: 'laura@gmail.com',
-    location: 'Lagos, Nigeria',
-    password: '<html/>',
-  },
-  validLoginInfo: {
-    email: 'laura@gmail.com',
-    password: '123456',
-  },
-  emptyLoginInfo: {
-    email: '',
-    password: '',
-  },
-  validLoginPassword: {
-    email: '  laur@gmail.com',
-    password: '123456',
-  },
-  invalidLoginEmail: {
-    email: '  laurgmail',
-    password: '<script></sript>',
+  invalidLoginDetails: {
+    email: 'johndoe',
   },
 };
