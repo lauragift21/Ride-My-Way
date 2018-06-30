@@ -8,25 +8,31 @@
 /*eslint-disable */
 export default {
   postRideValidation: (req, res, next) => {
-    const {
-      location,
-      destination,
-      seats,
-    } = req.body;
-    if ((!location) || location === undefined || location.toString().trim() === '' || typeof location !== 'string') {
+    const { location, destination, seats } = req.body;
+    if (
+      !location ||
+      location === undefined ||
+      location.toString().trim() === '' ||
+      typeof location !== 'string'
+    ) {
       return res.status(400).send({
         valid: false,
-        message: 'Ride location is required',
+        message: 'Ride location is required'
       });
-    } else if ((!destination) || destination === undefined || destination.toString().trim() === '' || typeof destination !== 'string') {
+    } else if (
+      !destination ||
+      destination === undefined ||
+      destination.toString().trim() === '' ||
+      typeof destination !== 'string'
+    ) {
       return res.status(400).send({
         valid: false,
-        message: 'Ride destination is required',
+        message: 'Ride destination is required'
       });
-    } else if ((!seats) || seats === undefined || (/\s/g).test(seats) === true ) {
+    } else if (!seats || seats === undefined || /\s/g.test(seats) === true) {
       return res.status(400).send({
         valid: false,
-        message: 'Number of seats is required',
+        message: 'Number of seats is required'
       });
     }
     return next();
