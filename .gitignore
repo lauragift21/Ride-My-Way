@@ -1,7 +1,7 @@
 dist
 node_modules
 .nyc_output
-server
+server/*
 .eslintignore
 .eslintrc.json
 .travis.yml
@@ -10,3 +10,4 @@ Procfile
 yarn.lock
 .vscode/
 .env
+.babelrc
