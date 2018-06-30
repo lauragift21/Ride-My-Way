@@ -68,8 +68,8 @@ yarn test
 
 ##
 
-API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1 
-UI Template: https://lauragift21.github.io/Ride-My-Way/UI/index.html
+API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1     
+UI Template: https://lauragift21.github.io/Ride-My-Way/UI/index.html  
 
 ## AUTHOR
 
