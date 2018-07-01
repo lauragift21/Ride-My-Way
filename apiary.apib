@@ -1,80 +1,48 @@
 FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 
-# lauragift
+# Ride My Way 
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
-## Questions Collection [/questions]
+## User [/auth]
 
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### Create a New user [POST]
+You may create a new user using this action. It takes a JSON
+object containing user details and sends back a response message and token object.
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+           "firstname": "Gift",
+           "lastname": "Egwuenu",
+           "email": "laurandidi21@gmail.com",
+           "location": "Lagos",
+           "password": "123456"
         }
 
 + Response 201 (application/json)
 
     + Headers
 
-            Location: /questions/2
+            Location: /auth/signup
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                "message": "User registration successful",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzA0MzY3MzUsImV4cCI6MTUzMDUyMzEzNX0.d-vggC0oDk9dfGQDzYCZQ7Pqj__1tyC6JjQ1cspa69g"
+            }
+            
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /auth/signup
+
+    + Body
+
+            {
+                "message": "Please provide a  valid firstname",
+                "token": null
             }
