@@ -40,6 +40,8 @@ Ride-My-Way is a carpooling application that provides drivers with the ability t
 | GET /users/rides/\<rideId>/requests              | Feth all ride requests             |
 | PUT /users/rides/\<rideId>/requests/\<requestId> | Accept or Reject a ride request    |
 
+[Ride My Way API Documentation](https://lauragift.docs.apiary.io/#)
+
 ## Build Setup
 
 ```
@@ -68,8 +70,8 @@ yarn test
 
 ##
 
-API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1 
-UI Template: https://lauragift21.github.io/Ride-My-Way/UI/index.html
+API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1     
+UI Template: https://lauragift21.github.io/Ride-My-Way/UI/index.html  
 
 ## AUTHOR
 
