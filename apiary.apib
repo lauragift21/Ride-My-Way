@@ -1,0 +1,119 @@
+FORMAT: 1A
+HOST: https://ride-my-way-server.herokuapp.com/api/v1
+
+# Ride My Way 
+
+Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
+
+## User [/auth/]
+
+### Sign Up a new User  [POST /auth/signup]
+You can create a new user using this action. It takes a JSON
+object containing user details and sends back a response message and token object.
+
++ Request (application/json)
+
+        {
+           "firstname": "Gift",
+           "lastname": "Egwuenu",
+           "email": "laurandidi21@gmail.com",
+           "location": "Lagos",
+           "password": "123456"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /auth/signup
+
+    + Body
+
+            {
+                "message": "User registration successful",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzA0MzY3MzUsImV4cCI6MTUzMDUyMzEzNX0.d-vggC0oDk9dfGQDzYCZQ7Pqj__1tyC6JjQ1cspa69g"
+            }
+            
++ Request (application/json)
+
+        {
+           "firstname": " ",
+           "lastname": "Egwuenu",
+           "email": "laurandidi21@gmail.com",
+           "location": "Lagos",
+           "password": "123456"
+        }
+            
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /auth/signup
+
+    + Body
+
+            {
+                "valid": false,
+                "message": "Please provide a valid firstname"
+            }
+            
+### Login an existing User  [POST /auth/login]
+
+You can login a user by sending the same information sent with signup but only email and password is required.
++ Request (application/json)
+
+        {
+           "email": "laurandidi21@gmail.com",
+           "password": "123456"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /auth/login
+
+    + Body
+
+            {
+                "message": "User login successful",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzA0MzY3MzUsImV4cCI6MTUzMDUyMzEzNX0.d-vggC0oDk9dfGQDzYCZQ7Pqj__1tyC6JjQ1cspa69g"
+            }
++ Request (application/json)
+
+        {
+           "email": "laurandigmail",
+           "password": "123456"
+        }
+            
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /auth/login
+
+    + Body
+
+            {
+                "valid": false,
+                "message": "Please provide a valid email"
+            }
++ Request (application/json)
+
+        {
+           "email": "laurandigmail",
+           "password": " "
+        }
+            
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /auth/login
+
+    + Body
+
+            {
+                "valid": false,
+                "message": "Please provide a valid password"
+            }

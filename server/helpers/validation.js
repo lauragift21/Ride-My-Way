@@ -16,17 +16,17 @@ export default {
     if ((!location) || typeof location !== 'string'||  location.toString().trim() === '') {
       return res.status(400).send({
         valid: false,
-        message: 'Ride location is required',
+        message: 'Ride location is required'
       });
     } else if ((!destination) || typeof destination !== 'string' || destination.toString().trim() === '') {
       return res.status(400).send({
         valid: false,
-        message: 'Ride destination is required',
+        message: 'Ride destination is required'
       });
     } else if ((!seats) || (/\s/g).test(seats) === true ) {
       return res.status(400).send({
         valid: false,
-        message: 'Number of seats is required',
+        message: 'Number of seats is required'
       });
     }
     return next();
