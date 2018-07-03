@@ -1,9 +1,7 @@
-import Drivers from './drivers';
-import Riders from './riders';
-import db from './rides';
+import user from './users';
+import ride from './rides';
 
 export {
-  Drivers,
-  Riders,
-  db,
+  user,
+  ride,
 };

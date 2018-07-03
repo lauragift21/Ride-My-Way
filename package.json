@@ -8,11 +8,11 @@
     "prebuild": "rimraf dist",
     "build": "babel server -d dist",
     "start": "npm run build && node dist/app.js",
-    "start:dev": "nodemon server/app.js --exec babel-node",
-    "lint": "./node_modules/.bin/eslint server",
-    "lint:fix": "./node_modules/.bin/eslint server --fix",
-    "test": "nyc mocha --require babel-register server/test/* --exit",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "start:dev": "cross-env NODE_ENV=development nodemon server/app.js --exec babel-node",
+    "lint": "./node_modules/.bin/eslint server --fix",
+    "test": "cross-env NODE_ENV=test nyc mocha  --timeout 15000  --require babel-register --require babel-polyfill server/test/* --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "pg": "nodemon server/db/index.js --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -34,9 +34,12 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-register": "^6.26.0",
+    "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
     "pg": "^7.4.3",
     "rimraf": "2.6.2"
@@ -46,6 +49,7 @@
     "chai-http": "^4.0.0",
     "codeclimate-test-reporter": "^0.5.0",
     "coveralls": "^3.0.1",
+    "cross-env": "^5.2.0",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "12.1.0",
     "eslint-plugin-import": "2.12.0",
