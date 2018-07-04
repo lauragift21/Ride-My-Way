@@ -69,7 +69,6 @@ export default {
     const { userid } = req;
     db.query(text, [location, destination, seats, departure, userid], (err, result) => {
       if (err) {
-        console.log(err);
         return res.status(500).json({
           message: 'There was a problem trying to sign up user.',
         });
