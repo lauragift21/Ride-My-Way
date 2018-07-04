@@ -145,5 +145,4 @@ describe('test for ride-my-way app', () => {
       done();
     });
   });
-
 });
