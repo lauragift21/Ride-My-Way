@@ -11,12 +11,16 @@ export default {
   isLoggedIn: (req, res, next) => {
     // check if the header is present
     if (!req.headers.authorization) {
-      return res.status(403).json({ message: 'You are not logged in!' });
+      return res.status(403).json({
+        success: false,
+        message: 'You are not logged in!',
+      });
     }
     // split the bearer from the token
     const token = req.headers.authorization.split(' ')[1];
     if (!token) {
       return res.status(401).json({
+        success: false,
         message: 'Please provide a valid token',
       });
     }
@@ -24,6 +28,7 @@ export default {
       if (err) {
         console.log(err);
         return res.status(401).json({
+          success: false,
           message: 'There was an error trying to process your request',
         });
       }

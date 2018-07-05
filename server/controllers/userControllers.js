@@ -28,7 +28,9 @@ export default {
       [firstname, lastname, email, location, bcrypt.hashPassword(password)],
       (err, result) => {
         if (err) {
+          console.log(err);
           return res.status(500).json({
+            success: false,
             message: 'There was a problem trying to sign up user.',
           });
         }
@@ -36,9 +38,17 @@ export default {
         const token = jwt.sign({ id: result.rows[0].id }, secret, {
           expiresIn: 86400,
         });
+        const arr = result.rows[0];
+        console.log(typeof arr);
+        const user = arr.slice(4);
+        console.log(users);
+        console.log(user);
+
         return res.status(201).json({
+          success: true,
           message: 'User registration successful',
           token,
+          user,
         });
       },
     );
@@ -57,24 +67,28 @@ export default {
     db.query(text, [email], (err, result) => {
       if (err) {
         return res.status(500).json({
+          success: false,
           message: 'There was a problem trying to sign in user',
         });
       } else if (!result) {
         return res.status(404).json({
+          success: false,
           message: 'No user found',
         });
       }
-      const user = result.rows[0];
-      const validPassword = bcrypt.comparePassword(password, user.password);
+      const encryptPassword = result.rows[0].password;
+      const validPassword = bcrypt.comparePassword(password, encryptPassword);
       if (!validPassword) {
         return res.status(401).json({
-          message: 'Password does not match',
+          success: false,
+          message: 'Password or email does not match',
         });
       }
       const token = jwt.sign({ id: result.rows[0].id }, secret, {
         expiresIn: 86400,
       });
       return res.status(200).json({
+        success: true,
         message: 'user login successful',
         token,
       });

@@ -7,10 +7,10 @@ export default {
    * @returns {object}
    */
   postRideValidation: (req, res, next) => {
-    const { location, destination, seats, departure } = req.body;
+    const {location, destination, seats, departure } = req.body;
     if (
       !location ||
-      typeof location !== 'string' ||
+      typeof location !== 'string' || /^\s+|\s+$/g.test(location) === true ||
       location.toString().trim() === ''
     ) {
       return res.status(400).send({
@@ -18,27 +18,24 @@ export default {
         message: 'Ride location is required',
       });
     } else if (
-      !destination ||
-      typeof destination !== 'string' ||
-      destination.toString().trim() === ''
+      !destination || /^\s+|\s+$/g.test(destination) === true || typeof destination !== 'string'
     ) {
       return res.status(400).send({
         valid: false,
         message: 'Ride destination is required',
       });
-    } else if (!seats || /\s/g.test(seats) === true) {
+    } else if (!seats || Number.isInteger(seats) || /\s/g.test(seats) === true) {
       return res.status(400).send({
         valid: false,
         message: 'Number of seats is required',
       });
-    } else if (
-      !departure ||
-      /^\d{2}[./-]\d{2}[./-]\d{4}$/.test(departure) === false
-    ) {
-      return res.status(400).send({
-        valid: false,
-        message: 'Departure date is required',
-      });
+    } else if (!departure || /^\d{2}[./-]\d{2}[./-]\d{4}$/.test(departure) === false || /^\s+|\s+$/g.test(departure) === true) {
+      return res
+        .status(400)
+        .send({
+          valid: false,
+          message: 'Departure date is required',
+        });
     }
     return next();
   },
@@ -50,27 +47,17 @@ export default {
    * @returns {object}
    */
   rideRequestValidation: (req, res, next) => {
-    const { accept, reject } = req.body;
-    if (accept === undefined || accept.toString().trim() === '') {
-      return res.status(400).send({
-        message: 'Accept should not be empty.',
-      });
-    }
-    if (accept !== 'true' && accept !== 'false') {
-      console.log(req.body.accept);
-      return res.status(400).send({
-        message: 'Accept can either be true or false.',
-      });
-    }
-    if (reject === undefined || reject.toString().trim() === '') {
-      return res
-        .status(400)
-        .send({ valid: false, message: 'Accept should not be empty.' });
-    }
-    if (reject !== 'true' && reject !== 'false') {
+    const { status } = req.body;
+    if (status === undefined || status.toString().trim() === '') {
       return res.status(400).send({
         valid: false,
-        message: 'Invalid value, Reject can be either true or false',
+        message: 'Status should not be empty.',
+      });
+    }
+    if (status !== 'true' && status !== 'false') {
+      return res.status(400).send({
+        valid: false,
+        message: 'Status can either be true or false.',
       });
     }
     return next();
@@ -125,7 +112,7 @@ export default {
     } else if (
       !password ||
       password.toString().trim() === '' ||
-      /.{7}/g.test(password) ||
+      /.{11}/g.test(password) ||
       /[<>]/.test(password) === true ||
       /[=]/.test(password) === true
     ) {
@@ -157,13 +144,13 @@ export default {
     } else if (
       !password ||
       password.toString().trim() === '' ||
-      /.{7/g.test(password) ||
+      /.{11/g.test(password) ||
       /[<>]/.test(password) === true ||
       /[=]/.test(password) === true
     ) {
       return res.status(400).send({
         valid: false,
-        message: 'Incorrect Password entry',
+        message: 'Please provide a valid password',
       });
     }
     return next();
