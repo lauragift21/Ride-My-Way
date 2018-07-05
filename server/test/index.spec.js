@@ -1,2 +1,2 @@
-import './rides.spec';
 import './users.spec';
+import './rides.spec';
