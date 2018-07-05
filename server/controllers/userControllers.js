@@ -28,6 +28,7 @@ export default {
       [firstname, lastname, email, location, bcrypt.hashPassword(password)],
       (err, result) => {
         if (err) {
+          console.log(err);
           return res.status(500).json({
             message: 'There was a problem trying to sign up user.',
           });
