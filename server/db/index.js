@@ -24,8 +24,9 @@ const db = poolConfig;
 // connect pg
 db.connect((err) => {
   if (err) {
-    console.log('Connection unsuccessful');
+    console.log(err);
   }
+
   // connect db
   db.query(
     `CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL UNIQUE, location VARCHAR(100) NOT NULL, password VARCHAR NOT NULL, created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(), updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW());
@@ -33,6 +34,8 @@ db.connect((err) => {
      CREATE TABLE IF NOT EXISTS requestRide(id SERIAL PRIMARY KEY, userid int NOT NULL, rideid int NOT NULL, status boolean NOT NULL, created_at TIMESTAMP WITH TIME ZONE NOT NULL, updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(), FOREIGN KEY(userID) REFERENCES users(id), FOREIGN KEY(rideID) REFERENCES rides(id));`,
     () => { },
   );
+
   return console.log('Connection successful');
 });
+
 export default db;
