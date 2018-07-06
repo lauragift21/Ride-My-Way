@@ -26,7 +26,7 @@ ul {
 }
 a {
   text-decoration: none;
-  color: #054752;
+  color: #1a7d8f;
 }
 button {
   border: none;
@@ -192,7 +192,7 @@ header .brand-center {
 .text-email {
   width: 31em;
   padding: 0.4rem;
-  outline-color: #054752;
+  outline: 3px #054752;
   height: 2.3rem;
 }
 .button {
@@ -413,16 +413,24 @@ header .brand-center {
   /* card */
   .card {
     width: 90%;
+    border-left: 5px solid #464646;
+    border-right: 5px solid #464646;
     margin: 10px;
   }
   .card-header {
     text-align: left;
+    position: relative;
+  }
+
+  .card-header ul {
+    position: absolute;
+    right: 60px;
   }
   .card-header a {
     color: #054752;
   }
   .search-ride {
-    width: 50vw;
+    width: 34vw;
     margin-bottom: 5px;
   }
   .portfolio {
