@@ -28,7 +28,6 @@ export default {
       [firstname, lastname, email, location, bcrypt.hashPassword(password)],
       (err, result) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             success: false,
             message: 'There was a problem trying to sign up user.',
@@ -83,6 +82,7 @@ export default {
         expiresIn: 86400,
       });
       const user = result.rows[0];
+      console.log(res.body.status, '>>>>>>>>>>');
       return res.status(200).json({
         success: true,
         message: 'user login successful',
