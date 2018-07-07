@@ -38,12 +38,7 @@ export default {
         const token = jwt.sign({ id: result.rows[0].id }, secret, {
           expiresIn: 86400,
         });
-        const arr = result.rows[0];
-        console.log(typeof arr);
-        const user = arr.slice(4);
-        console.log(users);
-        console.log(user);
-
+        const user = result.rows[0];
         return res.status(201).json({
           success: true,
           message: 'User registration successful',
@@ -81,16 +76,18 @@ export default {
       if (!validPassword) {
         return res.status(401).json({
           success: false,
-          message: 'Password or email does not match',
+          message: 'Email or Password does not match',
         });
       }
       const token = jwt.sign({ id: result.rows[0].id }, secret, {
         expiresIn: 86400,
       });
+      const user = result.rows[0];
       return res.status(200).json({
         success: true,
         message: 'user login successful',
         token,
+        user,
       });
     });
   },
