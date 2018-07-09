@@ -29,7 +29,7 @@ export default {
       (err, result) => {
         if (err) {
           console.log(err);
-          return res.status(500).json({
+          return res.status(400).json({
             success: false,
             message: 'There was a problem trying to sign up user.',
           });
@@ -61,11 +61,13 @@ export default {
     const { email, password } = req.body;
     db.query(text, [email], (err, result) => {
       if (err) {
-        return res.status(500).json({
+        return res.status(400).json({
           success: false,
           message: 'There was a problem trying to sign in user',
         });
-      } else if (!result) {
+      }
+      const user = result.rows[0];
+      if (!user) {
         return res.status(404).json({
           success: false,
           message: 'No user found',
@@ -82,7 +84,6 @@ export default {
       const token = jwt.sign({ id: result.rows[0].id }, secret, {
         expiresIn: 86400,
       });
-      const user = result.rows[0];
       return res.status(200).json({
         success: true,
         message: 'user login successful',

@@ -132,27 +132,27 @@ export default {
    */
   userLoginValidation: (req, res, next) => {
     const { email, password } = req.body;
-    if (
-      !email ||
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false ||
-      email.toString().trim() === ''
-    ) {
-      return res.status(400).send({
-        valid: false,
-        message: 'Please provide a valid email',
-      });
-    } else if (
-      !password ||
-      password.toString().trim() === '' ||
-      /.{11/g.test(password) ||
-      /[<>]/.test(password) === true ||
-      /[=]/.test(password) === true
-    ) {
-      return res.status(400).send({
-        valid: false,
-        message: 'Please provide a valid password',
-      });
-    }
+    // if (
+    //   !email ||
+    //   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false ||
+    //   email.toString().trim() === ''
+    // ) {
+    //   return res.status(400).send({
+    //     valid: false,
+    //     message: 'Please provide a valid email',
+    //   });
+    // } else if (
+    //   !password ||
+    //   password.toString().trim() === '' ||
+    //   /.{11/g.test(password) ||
+    //   /[<>]/.test(password) === true ||
+    //   /[=]/.test(password) === true
+    // ) {
+    //   return res.status(400).send({
+    //     valid: false,
+    //     message: 'Please provide a valid password',
+    //   });
+    // }
     return next();
   },
 };
