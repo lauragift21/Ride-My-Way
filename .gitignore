@@ -1,4 +1,16 @@
 dist
 node_modules
 .nyc_output
+server/*
+.eslintignore
+.eslintrc.json
+.travis.yml
+package.json
+Procfile
+yarn.lock
+.vscode/
 .env
+.babelrc
+.env
+.env.example
+.apiary.apib
