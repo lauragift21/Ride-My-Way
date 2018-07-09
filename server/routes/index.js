@@ -45,4 +45,10 @@ router.get(
   requestController.getRideRequest,
 );
 
+router.all('*', (req, res) => {
+  res.status(404).json({
+    message: 'Invalid request, Route does not exist',
+  });
+});
+
 export default router;

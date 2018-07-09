@@ -14,11 +14,13 @@ export default {
     const text = 'SELECT * FROM rides';
     db.query(text, (err, result) => {
       if (err) {
-        return res.status(500).json({
+        return res.status(404).json({
+          success: false,
           message: 'No ride found',
         });
       }
       return res.status(200).json({
+        success: true,
         message: 'All rides retrieved successfully',
         rides: result.rows,
       });
@@ -41,11 +43,13 @@ export default {
       (err, result) => {
         if (err) {
           return res.status(404).json({
+            success: false,
             message: 'Ride not found',
           });
         }
         const rideResult = result.rows;
         return res.status(200).json({
+          success: true,
           message: 'Ride retrieved successfully',
           ride: rideResult,
         });
@@ -69,17 +73,21 @@ export default {
     const { userid } = req;
     db.query(text, [location, destination, seats, departure, userid], (err, result) => {
       if (err) {
-        return res.status(500).json({
-          message: 'There was a problem trying to sign up user.',
+        console.log(err);
+        return res.status(400).json({
+          success: false,
+          message: 'Invalid request, Can\'t create a new ride',
         });
       }
       const rideResult = result.rows[0];
       if (result) {
         return res.status(201).json({
+          success: true,
           message: 'Ride created successfully',
           ride: rideResult,
         });
       }
+      return null;
     });
   },
 };
