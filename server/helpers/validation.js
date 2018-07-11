@@ -7,7 +7,9 @@ export default {
    * @returns {object}
    */
   postRideValidation: (req, res, next) => {
-    const {location, destination, seats, departure } = req.body;
+    const {
+      location, destination, seats, departure,
+    } = req.body;
     if (
       !location ||
       typeof location !== 'string' || /^\s+|\s+$/g.test(location) === true ||
@@ -54,10 +56,10 @@ export default {
         message: 'Status should not be empty.',
       });
     }
-    if (status !== 'true' && status !== 'false') {
+    if (status !== 'accepted' && status !== 'rejected') {
       return res.status(400).send({
         valid: false,
-        message: 'Status can either be true or false.',
+        message: 'Status can either be accepted or rejected.',
       });
     }
     return next();
@@ -132,27 +134,27 @@ export default {
    */
   userLoginValidation: (req, res, next) => {
     const { email, password } = req.body;
-    // if (
-    //   !email ||
-    //   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false ||
-    //   email.toString().trim() === ''
-    // ) {
-    //   return res.status(400).send({
-    //     valid: false,
-    //     message: 'Please provide a valid email',
-    //   });
-    // } else if (
-    //   !password ||
-    //   password.toString().trim() === '' ||
-    //   /.{11/g.test(password) ||
-    //   /[<>]/.test(password) === true ||
-    //   /[=]/.test(password) === true
-    // ) {
-    //   return res.status(400).send({
-    //     valid: false,
-    //     message: 'Please provide a valid password',
-    //   });
-    // }
+    if (
+      !email ||
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false ||
+      email.toString().trim() === ''
+    ) {
+      return res.status(400).send({
+        valid: false,
+        message: 'Please provide a valid email',
+      });
+    } else if (
+      !password ||
+      password.toString().trim() === '' ||
+      /.{11/g.test(password) ||
+      /[<>]/.test(password) === true ||
+      /[=]/.test(password) === true
+    ) {
+      return res.status(400).send({
+        valid: false,
+        message: 'Please provide a valid password',
+      });
+    }
     return next();
   },
 };

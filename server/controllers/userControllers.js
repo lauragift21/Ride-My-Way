@@ -17,36 +17,56 @@ export default {
    * @returns {object} json data
    */
   createUser: (req, res) => {
-    // hash password with bcrypt with salt round 10
     const text =
-    'INSERT INTO users(firstname, lastname, email, location, password) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+      'INSERT INTO users(firstname, lastname, email, location, password) VALUES ($1, $2, $3, $4, $5) RETURNING *';
     const {
       firstname, lastname, email, location, password,
     } = req.body;
-    db.query(
-      text,
-      [firstname, lastname, email, location, bcrypt.hashPassword(password)],
-      (err, result) => {
-        if (err) {
-          console.log(err);
-          return res.status(400).json({
-            success: false,
-            message: 'There was a problem trying to sign up user.',
+
+    db.query('SELECT * FROM users WHERE email=$1', [email], (err, resp) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({
+          success: false,
+          message: 'An unexpected error occurred',
+        });
+      }
+      if (resp.rowCount > 0) {
+        return res.status(409).json({
+          success: false,
+          message: 'A user with that email already exists',
+        });
+      }
+      return db.query(
+        text,
+        [firstname, lastname, email, location, bcrypt.hashPassword(password)],
+        (errp, result) => {
+          if (errp) {
+            console.log(errp);
+            return res.status(400).json({
+              success: false,
+              message: 'There was a problem trying to sign up user.',
+            });
+          }
+          // create token with jwt that expires in 24 hours
+          const token = jwt.sign({ id: result.rows[0].id }, secret, {
+            expiresIn: 86400,
           });
-        }
-        // create token with jwt that expires in 24 hours
-        const token = jwt.sign({ id: result.rows[0].id }, secret, {
-          expiresIn: 86400,
-        });
-        const user = result.rows[0];
-        return res.status(201).json({
-          success: true,
-          message: 'User registration successful',
-          token,
-          user,
-        });
-      },
-    );
+          return res.status(201).json({
+            success: true,
+            message: 'User registration successful',
+            token,
+            user: {
+              id: result.rows[0].id,
+              firstname: result.rows[0].firstname,
+              lastname: result.rows[0].lastname,
+              email: result.rows[0].email,
+              location: result.rows[0].location,
+            },
+          });
+        },
+      );
+    });
   },
   /**
    * @description login an existing user
@@ -88,7 +108,13 @@ export default {
         success: true,
         message: 'user login successful',
         token,
-        user,
+        user: {
+          id: result.rows[0].id,
+          firstname: result.rows[0].firstname,
+          lastname: result.rows[0].lastname,
+          email: result.rows[0].email,
+          location: result.rows[0].location,
+        },
       });
     });
   },

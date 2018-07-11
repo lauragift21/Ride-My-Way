@@ -10,6 +10,7 @@ const router = express.Router();
 router.get('/', (req, res) =>
   res.status(200).json({ message: 'Welcome to ride my way app' }));
 
+
 // Authentication routes
 router.post(
   '/auth/signup',
@@ -36,13 +37,19 @@ router.get('/rides', verify.isLoggedIn, rideController.getAllRides);
 router.post(
   '/rides/:rideId/requests',
   verify.isLoggedIn,
-  validate.rideRequestValidation,
-  requestController.rideRequest,
+  requestController.createRideRequest,
 );
 router.get(
   '/users/rides/:rideId/requests',
   verify.isLoggedIn,
   requestController.getRideRequest,
+);
+
+router.put(
+  '/users/rides/:rideId/requests/:requestId',
+  verify.isLoggedIn,
+  validate.rideRequestValidation,
+  requestController.updateRideRequest,
 );
 
 router.all('*', (req, res) => {

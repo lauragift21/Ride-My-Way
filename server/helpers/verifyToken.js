@@ -26,7 +26,6 @@ export default {
     }
     jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
       if (err) {
-        console.log(err);
         return res.status(401).json({
           success: false,
           message: 'There was an error trying to process your request',
