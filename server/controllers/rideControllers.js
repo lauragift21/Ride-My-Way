@@ -44,7 +44,12 @@ export default {
         if (err) {
           return res.status(404).json({
             success: false,
-            message: 'Ride not found',
+            message: 'Specified ride not found',
+          });
+        } else if (result.rowCount === 0) {
+          return res.status(404).json({
+            success: false,
+            message: 'Specified ride with that id does not exist',
           });
         }
         const rideResult = result.rows;

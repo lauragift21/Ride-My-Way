@@ -13,7 +13,7 @@ const {
 
 describe('Auth test endpoint', () => {
   before((done) => {
-    db.query('DELETE FROM users');
+    db.query('DELETE FROM users; DELETE FROM rides;');
     done();
   });
   describe('POST /api/v1/auth/signup', () => {

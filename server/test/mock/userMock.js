@@ -16,6 +16,6 @@ export default {
     password: '123456',
   },
   invalidLoginDetails: {
-    email: 'Johndoe',
+    email: 'johndoemail',
   },
 };
