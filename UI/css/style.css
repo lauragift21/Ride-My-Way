@@ -1,6 +1,7 @@
 /* Globals */
 html {
   height: 100%;
+  box-sizing: border-box;
 }
 .container {
   width: 90%;

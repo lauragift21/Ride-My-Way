@@ -8,18 +8,20 @@ import verify from '../helpers/verifyToken';
 const router = express.Router();
 
 router.get('/', (req, res) =>
-  res.status(200).json({ message: 'Welcome to ride my way app' }));
+  res.status(200).json({ message: 'Welcome to ride my way app' }),
+);
+
 
 // Authentication routes
 router.post(
   '/auth/signup',
   validate.userSignupValidation,
-  userController.createUser,
+  userController.createUser
 );
 router.post(
   '/auth/login',
   validate.userLoginValidation,
-  userController.loginUser,
+  userController.loginUser
 );
 
 //  All routes for rides endpoint
@@ -27,7 +29,7 @@ router.post(
   '/users/rides',
   verify.isLoggedIn,
   validate.postRideValidation,
-  rideController.createRide,
+  rideController.createRide
 );
 router.get('/rides/:rideId', verify.isLoggedIn, rideController.getOneRide);
 router.get('/rides', verify.isLoggedIn, rideController.getAllRides);
@@ -36,18 +38,24 @@ router.get('/rides', verify.isLoggedIn, rideController.getAllRides);
 router.post(
   '/rides/:rideId/requests',
   verify.isLoggedIn,
-  validate.rideRequestValidation,
-  requestController.rideRequest,
+  requestController.createRideRequest
 );
 router.get(
   '/users/rides/:rideId/requests',
   verify.isLoggedIn,
-  requestController.getRideRequest,
+  requestController.getRideRequest
+);
+
+router.put(
+  '/users/rides/:rideId/requests/:requestId',
+  verify.isLoggedIn,
+  validate.rideRequestValidation,
+  requestController.updateRideRequest
 );
 
 router.all('*', (req, res) => {
   res.status(404).json({
-    message: 'Invalid request, Route does not exist',
+    message: 'Invalid request, Route does not exist'
   });
 });
 

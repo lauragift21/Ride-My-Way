@@ -9,13 +9,13 @@ export default {
   invalidUserInfo: {
     firstname: '',
     lastname: 'Doe',
-    email: 'johndoe',
+    email: 'Johndoe',
   },
   validLoginDetails: {
     email: 'Jane@gmail.com',
     password: '123456',
   },
   invalidLoginDetails: {
-    email: 'johndoe',
+    email: 'johndoemail',
   },
 };
