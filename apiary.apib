@@ -26,8 +26,6 @@ This is a basic route with the welcome message.
 ## User [/auth/]
 
 ### Sign Up a new User  [POST /auth/signup]
-You can create a new user using this action. It takes a JSON
-object containing user details and sends back a response message and token object.
 
 + Request (application/json)
 
@@ -50,6 +48,13 @@ object containing user details and sends back a response message and token objec
             {
                 "message": "User registration successful",
                 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzA0MzY3MzUsImV4cCI6MTUzMDUyMzEzNX0.d-vggC0oDk9dfGQDzYCZQ7Pqj__1tyC6JjQ1cspa69g"
+                  "user": {
+                    "id": 1,
+                    "firstname": "Gift",
+                    "lastname": "Egwuenu",
+                    "email": "laurandidi21@gmail.com",
+                    "location": "Lagos"
+                }
             }
             
 + Request (application/json)
@@ -168,7 +173,6 @@ object containing user details and sends back a response message and token objec
 
 ### Login an existing User  [POST /auth/login]
 
-You can login a user by sending the same information sent with signup but only email and password is required.
 + Request (application/json)
 
         {
@@ -187,6 +191,13 @@ You can login a user by sending the same information sent with signup but only e
             {
                 "message": "User login successful",
                 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzA0MzY3MzUsImV4cCI6MTUzMDUyMzEzNX0.d-vggC0oDk9dfGQDzYCZQ7Pqj__1tyC6JjQ1cspa69g"
+                 "user": {
+                    "id": 1,
+                    "firstname": "Gift",
+                    "lastname": "Egwuenu",
+                    "email": "laurandidi21@gmail.com",
+                    "location": "Lagos"
+                }
             }
 + Request (application/json)
 
@@ -226,3 +237,174 @@ You can login a user by sending the same information sent with signup but only e
                 "valid": false,
                 "message": "Please provide a valid password"
             }
+
+## Rides [/ride/]
+
+### Create a new ride  [POST /users/rides]
+
+ + Request (application/json)
+
+        {
+           "location": "Maryland",
+            "destination": "ikeja",
+            "seats": 2,
+            "departure": "05-03-2018",
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /users/rides
+
+    + Body
+    
+            {
+                "success": true,
+                "message": "Ride created successfully",
+                "ride": {
+                    "id": 8,
+                    "location": "Maryland",
+                    "destination": "ikeja",
+                    "seats": 2,
+                    "departure": "2018-05-03T00:00:00.000Z",
+                    "userid": 1,
+                    "created_at": "2018-07-13T17:02:03.067Z",
+                    "updated_at": "2018-07-13T17:02:03.067Z"
+                }
+            }
+
+
+### Get all available rides [GET /rides]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /rides
+
+    + Body
+    
+            {
+                "success": true,
+                "message": "All rides retrieved successfully",
+                "rides": [
+                    {
+                        "id": 2,
+                        "location": "Lagos",
+                        "destination": "abuja",
+                        "seats": 2,
+                        "departure": "2018-01-03T00:00:00.000Z",
+                        "userid": 1,
+                        "created_at": "2018-07-06T05:27:14.661Z",
+                        "updated_at": "2018-07-06T05:27:14.661Z"
+                    },
+                    {
+                        "id": 3,
+                        "location": "Maryland",
+                        "destination": "Victoria Island",
+                        "seats": 5,
+                        "departure": "2018-01-04T00:00:00.000Z",
+                        "userid": 1,
+                        "created_at": "2018-07-06T05:28:09.244Z",
+                        "updated_at": "2018-07-06T05:28:09.244Z"
+                    },
+                    {
+                        "id": 4,
+                        "location": "Ojo",
+                        "destination": "Aba",
+                        "seats": 1,
+                        "departure": "2018-01-03T00:00:00.000Z",
+                        "userid": 1,
+                        "created_at": "2018-07-06T05:28:27.970Z",
+                        "updated_at": "2018-07-06T05:28:27.970Z"
+                    },
+                    {
+                        "id": 5,
+                        "location": "Illupeju",
+                        "destination": "Aba",
+                        "seats": 1,
+                        "departure": "2018-01-03T00:00:00.000Z",
+                        "userid": 1,
+                        "created_at": "2018-07-06T05:28:43.613Z",
+                        "updated_at": "2018-07-06T05:28:43.613Z"
+                    },
+                    {
+                        "id": 6,
+                        "location": "Maryland",
+                        "destination": "ikeja",
+                        "seats": 2,
+                        "departure": "2018-05-03T00:00:00.000Z",
+                        "userid": 2,
+                        "created_at": "2018-07-06T09:24:35.387Z",
+                        "updated_at": "2018-07-06T09:24:35.387Z"
+                    },
+                    {
+                        "id": 8,
+                        "location": "Maryland",
+                        "destination": "ikeja",
+                        "seats": 2,
+                        "departure": "2018-05-03T00:00:00.000Z",
+                        "userid": 7,
+                        "created_at": "2018-07-13T17:02:03.067Z",
+                        "updated_at": "2018-07-13T17:02:03.067Z"
+                    }
+                ]
+            }
+
+### Get a specific ride  [GET /rides/6]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /rides/6
+
+    + Body
+            
+            {
+                "success": true,
+                "message": "Ride retrieved successfully",
+                "ride": [
+                    {
+                        "id": 6,
+                        "location": "Maryland",
+                        "destination": "ikeja",
+                        "seats": 2,
+                        "departure": "2018-05-03T00:00:00.000Z",
+                        "userid": 2,
+                        "created_at": "2018-07-06T09:24:35.387Z",
+                        "updated_at": "2018-07-06T09:24:35.387Z"
+                    }
+                ]
+            }
+
+
+### Post a ride request  [POST /rides/1/requests]
+
+
+ + Request (application/json)
+
+        {
+          
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /rides/6/requests
+
+    + Body
+    
+            {
+                "success": true,
+                "message": "Ride request added successfully",
+            }
+
+
+
+### Get all ride requests  [GET /users/rides/5/requests]
+
+
+### Update a ride request  [PUT /users/rides/5/requests/3]
