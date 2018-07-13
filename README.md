@@ -1,6 +1,6 @@
 # Ride-My-Way
 
-![travis badge](https://travis-ci.org/lauragift21/Ride-My-Way.svg?branch=ch-travis-setup-%23158419338) [![Coverage Status](https://coveralls.io/repos/github/lauragift21/Ride-My-Way/badge.svg?branch=develop)](https://coveralls.io/github/lauragift21/Ride-My-Way?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/80dd9e20a072d231b94b/maintainability)](https://codeclimate.com/github/lauragift21/Ride-My-Way/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/80dd9e20a072d231b94b/test_coverage)](https://codeclimate.com/github/lauragift21/Ride-My-Way/test_coverage)
+[![Build Status](https://travis-ci.org/lauragift21/Ride-My-Way.svg?branch=develop)](https://travis-ci.org/lauragift21/Ride-My-Way) [![Coverage Status](https://coveralls.io/repos/github/lauragift21/Ride-My-Way/badge.svg?branch=develop)](https://coveralls.io/github/lauragift21/Ride-My-Way?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/80dd9e20a072d231b94b/maintainability)](https://codeclimate.com/github/lauragift21/Ride-My-Way/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/80dd9e20a072d231b94b/test_coverage)](https://codeclimate.com/github/lauragift21/Ride-My-Way/test_coverage)
 
 Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
@@ -69,7 +69,7 @@ yarn test
 
 ##
 
-API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1
+API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1   
 UI Template: https://lauragift21.github.io/Ride-My-Way/UI/index.html
 
 ## AUTHOR

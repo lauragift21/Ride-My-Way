@@ -12,7 +12,7 @@
     "lint": "./node_modules/.bin/eslint server --fix",
     "test": "cross-env NODE_ENV=test nyc mocha  --timeout 15000  --require babel-register --require babel-polyfill server/test/* --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "pg": "nodemon server/db/index.js --exec babel-node"
+    "pg": "cross-env NODE_ENV=development nodemon server/db/index.js --exec babel-node"
   },
   "repository": {
     "type": "git",

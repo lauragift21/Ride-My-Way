@@ -7,7 +7,9 @@ export default {
    * @returns {object}
    */
   postRideValidation: (req, res, next) => {
-    const {location, destination, seats, departure } = req.body;
+    const {
+      location, destination, seats, departure,
+    } = req.body;
     if (
       !location ||
       typeof location !== 'string' || /^\s+|\s+$/g.test(location) === true ||
@@ -54,10 +56,10 @@ export default {
         message: 'Status should not be empty.',
       });
     }
-    if (status !== 'true' && status !== 'false') {
+    if (status !== 'accepted' && status !== 'rejected') {
       return res.status(400).send({
         valid: false,
-        message: 'Status can either be true or false.',
+        message: 'Status can either be accepted or rejected.',
       });
     }
     return next();
