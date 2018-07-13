@@ -5,6 +5,24 @@ HOST: https://ride-my-way-server.herokuapp.com/api/v1
 
 Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
+## Home [/]
+
+### Welcome Page [GET /]
+This is a basic route with the welcome message.
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /
+
+    + Body
+
+            {
+                "message": "Welcome to ride my way app"
+            }
+                
+
 ## User [/auth/]
 
 ### Sign Up a new User  [POST /auth/signup]
@@ -56,7 +74,98 @@ object containing user details and sends back a response message and token objec
                 "valid": false,
                 "message": "Please provide a valid firstname"
             }
++ Request (application/json)
+
+        {
+           "firstname": "Gift ",
+           "lastname": " ",
+           "email": "laurandidi21@gmail.com",
+           "location": "Lagos",
+           "password": "123456"
+        }
             
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /auth/signup
+
+    + Body
+
+            {
+                "valid": false,
+                "message": "Please provide a valid lastname"
+            }
+            
++ Request (application/json)
+
+        {
+           "firstname": "Gift",
+           "lastname": "Egwuenu",
+           "email": "laurandidi2.com",
+           "location": "Lagos",
+           "password": "123456"
+        }
+            
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /auth/signup
+
+    + Body
+
+            {
+                "valid": false,
+                "message": "Please provide a valid email"
+            }
+
++ Request (application/json)
+
+        {
+           "firstname": "Gift",
+           "lastname": "Egwuenu",
+           "email": "laurandidi21@gmail.com",
+           "location": " ",
+           "password": "123456"
+        }
+            
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /auth/signup
+
+    + Body
+
+            {
+                "valid": false,
+                "message": "User location is required"
+            }
++ Request (application/json)
+
+        {
+           "firstname": "Gift",
+           "lastname": "Egwuenu",
+           "email": "laurandidi21@gmail.com",
+           "location": "Lagos",
+           "password": " "
+        }
+            
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /auth/signup
+
+    + Body
+
+            {
+                "valid": false,
+                "message": "Please provide a valid password"
+            }
+
+
 ### Login an existing User  [POST /auth/login]
 
 You can login a user by sending the same information sent with signup but only email and password is required.
