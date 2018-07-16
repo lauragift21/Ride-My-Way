@@ -34,6 +34,7 @@ describe('POST create new ride', () => {
       })
       .end((err, res) => {
         ({ token } = res.body);
+        console.log('token', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -45,6 +46,7 @@ describe('POST create new ride', () => {
           .set('Authorization', `Bearer ${token}`)
           .set('Accept', 'application/json')
           .end((err, res) => {
+            console.log(res, '?????');
             expect(res.status).to.equal(400);
             done();
           });
