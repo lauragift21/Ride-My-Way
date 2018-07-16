@@ -45,6 +45,7 @@ describe('POST create new ride', () => {
           .set('Authorization', `Bearer ${token}`)
           .set('Accept', 'application/json')
           .end((err, res) => {
+            console.log(res, '>>>>>>>>>');
             expect(res.status).to.equal(400);
             done();
           });
