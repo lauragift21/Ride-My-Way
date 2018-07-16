@@ -34,7 +34,7 @@ describe('POST create new ride', () => {
       })
       .end((err, res) => {
         ({ token } = res.body);
-        console.log('token', token);
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
