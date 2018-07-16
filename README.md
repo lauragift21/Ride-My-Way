@@ -40,7 +40,7 @@ Ride-My-Way is a carpooling application that provides drivers with the ability t
 | GET /users/rides/\<rideId>/requests              | Feth all ride requests             |
 | PUT /users/rides/\<rideId>/requests/\<requestId> | Accept or Reject a ride request    |
 
-[Ride My Way API Documentation](https://lauragift.docs.apiary.io/#)
+[Ride My Way API Documentation](https://ridemyway13.docs.apiary.io/#)
 
 ## Build Setup
 
