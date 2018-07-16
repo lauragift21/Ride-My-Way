@@ -17,7 +17,7 @@ describe('Test for rides', () => {
   it('should throw an error if no valid token is available', (done) => {
     request(app)
       .post('/api/v1/users/rides')
-      .set('authorization', 'qwert12345ewqwert')
+      .set('authorization', 'qwerty')
       .end((err, res) => {
         expect(res.status).to.equal(401);
       });
