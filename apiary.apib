@@ -383,12 +383,6 @@ This is a basic route with the welcome message.
 ### Post a ride request  [POST /rides/1/requests]
 
 
- + Request (application/json)
-
-        {
-          
-        }
-
 + Response 201 (application/json)
 
     + Headers
@@ -406,5 +400,46 @@ This is a basic route with the welcome message.
 
 ### Get all ride requests  [GET /users/rides/5/requests]
 
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /users/rides/6/requests
+
+    + Body
+    
+            {
+                "success": true,
+                "message": "All ride request retrieved successfully",
+                "rides": [
+                    {
+                        "id": 3,
+                        "userid": 2,
+                        "rideid": 3,
+                        "status": "pending",
+                        "created_at": "2018-07-17T06:56:49.771Z",
+                        "updated_at": "2018-07-17T06:56:49.771Z"
+                    }
+                ]
+            }
+
 
 ### Update a ride request  [PUT /users/rides/5/requests/3]
+ + Request (application/json)
+
+        {
+            status: 'accepted'
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: users/rides/3/requests/3
+
+    + Body
+    
+            {
+                "success": true,
+                "message": "Ride request updated successfully",
+            }
