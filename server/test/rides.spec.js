@@ -232,12 +232,13 @@ describe('GET a specific ride', () => {
           .get('/api/v1/rides/1')
           .set('Authorization', `Bearer ${token}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(200);
             done();
           });
       });
   });
-  it('should get details of a ride', (done) => {
+  it('return error if no ride with id is found', (done) => {
     request(app)
       .post('/api/v1/auth/login')
       .send({
@@ -251,6 +252,7 @@ describe('GET a specific ride', () => {
           .get('/api/v1/rides/112345')
           .set('Authorization', `Bearer ${token}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(404);
             done();
           });
@@ -273,6 +275,7 @@ describe('POST request to get a ride', () => {
           .post('/api/v1/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(201);
             done();
           });
@@ -292,6 +295,7 @@ describe('POST request to get a ride', () => {
           .post('/api/v1/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(400);
             done();
           });
@@ -308,13 +312,13 @@ describe('GET all request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        // ({ token2 } = res.body.token);
         token2 = res.body.token;
         console.log('token:', token2);
         request(app)
           .get('/api/v1/users/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(200);
             done();
           });
@@ -328,7 +332,6 @@ describe('GET all request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        // ({ token2 } = res.body.token);
         token2 = res.body.token;
         console.log('token:', token2);
         request(app)
@@ -360,6 +363,7 @@ describe('UPDATE Accept or reject a request to get a ride', () => {
             status: 'accepted',
           })
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(200);
             done();
           });
