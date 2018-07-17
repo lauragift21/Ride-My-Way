@@ -33,7 +33,7 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
         console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
@@ -46,7 +46,7 @@ describe('POST create new ride', () => {
           .set('Authorization', `Bearer ${token}`)
           .set('Accept', 'application/json')
           .end((err, res) => {
-            console.log(res, '?????');
+            console.log(res.body, '?????');
             expect(res.status).to.equal(400);
             done();
           });
@@ -60,7 +60,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -73,6 +74,7 @@ describe('POST create new ride', () => {
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .end((err, res) => {
+            console.log(res.body, '>>>>>>>>>');
             expect(res.status).to.equal(400);
             expect(res.body.message).to.equal('Ride location is required');
           });
@@ -87,7 +89,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -100,6 +103,7 @@ describe('POST create new ride', () => {
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .end((err, res) => {
+            console.log(res.body, '>>>>>>>>>');
             expect(res.status).to.equal(400);
             expect(res.body.message).to.equal('Ride destination is required');
             done();
@@ -114,7 +118,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -127,6 +132,7 @@ describe('POST create new ride', () => {
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .end((err, res) => {
+            console.log(res.body, '>>>>>>>>>>>');
             expect(res.status).to.equal(400);
             expect(res.body.message).to.equal('Departure date is required');
             done();
