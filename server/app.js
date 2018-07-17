@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import logger from 'morgan';
 import dotenv from 'dotenv';
 import router from './routes';
@@ -14,6 +15,7 @@ app.use(bodyParser.json({ type: 'application/json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // set router instance
+app.use(cors());
 app.use('/api/v1/', router);
 
 const port = process.env.PORT || 8080;
