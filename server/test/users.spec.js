@@ -147,7 +147,7 @@ describe('POST login authentication', () => {
   });
   it('should throw error when login user with invalid data', (done) => {
     const invalidData = {
-      email: 'giftail.com',
+      email: '',
       password: '1256',
     };
     request(app)
