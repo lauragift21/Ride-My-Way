@@ -217,7 +217,7 @@ describe('GET a specific ride', () => {
       .end((err, res) => {
         ({ token } = res.body);
         request(app)
-          .get('/api/v1/rides/1')
+          .get('/api/v1/rides/7')
           .set('Authorization', `Bearer ${token}`)
           .end((err, res) => {
             expect(res.status).to.equal(200);
@@ -250,14 +250,13 @@ describe('POST request to get a ride', () => {
     request(app)
       .post('/api/v1/auth/login')
       .send({
-        email: 'sareddah@mail.com',
+        email: 'sareddh@mail.com',
         password: '123456',
       })
       .end((err, res) => {
-        // ({ token2 } = res.body.token);
         token2 = res.body.token;
         request(app)
-          .post('/api/v1/rides/2/requests')
+          .post('/api/v1/rides/6/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
             expect(res.status).to.equal(201);
@@ -275,7 +274,7 @@ describe('POST request to get a ride', () => {
       .end((err, res) => {
         token2 = res.body.token;
         request(app)
-          .post('/api/v1/rides/2/requests')
+          .post('/api/v1/rides/6/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
             expect(res.status).to.equal(400);
@@ -290,14 +289,14 @@ describe('GET all request to get a ride', () => {
     request(app)
       .post('/api/v1/auth/login')
       .send({
-        email: 'sareddah@mail.com',
+        email: 'sareddh@mail.com',
         password: '123456',
       })
       .end((err, res) => {
         // ({ token2 } = res.body.token);
         token2 = res.body.token;
         request(app)
-          .get('/api/v1/users/rides/2/requests')
+          .get('/api/v1/users/rides/6/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
             expect(res.status).to.equal(200);
@@ -305,11 +304,11 @@ describe('GET all request to get a ride', () => {
           });
       });
   });
-  it('should throw an error whe o ride request is available', (done) => {
+  it('should throw an error when no ride request is available', (done) => {
     request(app)
       .post('/api/v1/auth/login')
       .send({
-        email: 'sareddah@mail.com',
+        email: 'sareddh@mail.com',
         password: '123456',
       })
       .end((err, res) => {
@@ -335,9 +334,9 @@ describe('UPDATE Accept or reject a request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-         token = res.body.token;
+        token = res.body.token;
         request(app)
-          .put('/api/v1/users/rides/2/requests/9')
+          .put('/api/v1/users/rides/6/requests/2')
           .set('Authorization', `Bearer ${token}`)
           .send({
             status: 'accepted',
