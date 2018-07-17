@@ -17,7 +17,7 @@ describe('Test for rides', () => {
   it('should throw an error if no valid token is available', (done) => {
     request(app)
       .post('/api/v1/users/rides')
-      .set('authorization', 'qwert12345ewqwert')
+      .set('authorization', 'qwerty')
       .end((err, res) => {
         expect(res.status).to.equal(401);
       });
@@ -33,7 +33,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -45,6 +46,7 @@ describe('POST create new ride', () => {
           .set('Authorization', `Bearer ${token}`)
           .set('Accept', 'application/json')
           .end((err, res) => {
+            console.log(res.body, '?????');
             expect(res.status).to.equal(400);
             done();
           });
@@ -58,7 +60,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -71,6 +74,7 @@ describe('POST create new ride', () => {
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .end((err, res) => {
+            console.log(res.body, '>>>>>>>>>');
             expect(res.status).to.equal(400);
             expect(res.body.message).to.equal('Ride location is required');
           });
@@ -85,7 +89,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -98,6 +103,7 @@ describe('POST create new ride', () => {
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .end((err, res) => {
+            console.log(res.body, '>>>>>>>>>');
             expect(res.status).to.equal(400);
             expect(res.body.message).to.equal('Ride destination is required');
             done();
@@ -112,7 +118,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -125,6 +132,7 @@ describe('POST create new ride', () => {
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .end((err, res) => {
+            console.log(res.body, '>>>>>>>>>>>');
             expect(res.status).to.equal(400);
             expect(res.body.message).to.equal('Departure date is required');
             done();
@@ -139,7 +147,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -166,7 +175,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -194,7 +204,8 @@ describe('GET all rides', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .get('/api/v1/rides')
           .set('Authorization', `Bearer ${token}`)
@@ -215,17 +226,19 @@ describe('GET a specific ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .get('/api/v1/rides/1')
           .set('Authorization', `Bearer ${token}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(200);
             done();
           });
       });
   });
-  it('should get details of a ride', (done) => {
+  it('return error if no ride with id is found', (done) => {
     request(app)
       .post('/api/v1/auth/login')
       .send({
@@ -233,11 +246,13 @@ describe('GET a specific ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .get('/api/v1/rides/112345')
           .set('Authorization', `Bearer ${token}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(404);
             done();
           });
@@ -254,12 +269,13 @@ describe('POST request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        // ({ token2 } = res.body.token);
         token2 = res.body.token;
+        console.log('token:', token2);
         request(app)
           .post('/api/v1/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(201);
             done();
           });
@@ -274,10 +290,12 @@ describe('POST request to get a ride', () => {
       })
       .end((err, res) => {
         token2 = res.body.token;
+        console.log('token:', token2);
         request(app)
           .post('/api/v1/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(400);
             done();
           });
@@ -294,12 +312,13 @@ describe('GET all request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        // ({ token2 } = res.body.token);
         token2 = res.body.token;
+        console.log('token:', token2);
         request(app)
           .get('/api/v1/users/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(200);
             done();
           });
@@ -313,8 +332,8 @@ describe('GET all request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        // ({ token2 } = res.body.token);
         token2 = res.body.token;
+        console.log('token:', token2);
         request(app)
           .get('/api/v1/users/rides/0/requests')
           .set('Authorization', `Bearer ${token2}`)
@@ -335,7 +354,8 @@ describe('UPDATE Accept or reject a request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-         token = res.body.token;
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .put('/api/v1/users/rides/2/requests/9')
           .set('Authorization', `Bearer ${token}`)
@@ -343,6 +363,7 @@ describe('UPDATE Accept or reject a request to get a ride', () => {
             status: 'accepted',
           })
           .end((err, res) => {
+            console.log(res.body);
             expect(res.status).to.equal(200);
             done();
           });
