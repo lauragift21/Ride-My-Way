@@ -274,6 +274,94 @@ This is a basic route with the welcome message.
                 }
             }
 
++ Request (application/json)
+
+        {
+           "location": " ",
+            "destination": "ikeja",
+            "seats": 2,
+            "departure": "05-03-2018",
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /users/rides
+
+    + Body
+    
+            {
+                valid: false,
+                message: 'Ride location is required'
+            }
+
++ Request (application/json)
+
+        {
+           "location": "Maryland",
+            "destination": " ",
+            "seats": 2,
+            "departure": "05-03-2018",
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /users/rides
+
+    + Body
+    
+            {
+                valid: false,
+                message: 'Ride destination is required'
+            }
+
++ Request (application/json)
+
+        {
+           "location": "Maryland",
+            "destination": "ikeja",
+            "seats": ,
+            "departure": "05-03-2018",
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /users/rides
+
+    + Body
+    
+            {
+                valid: false,
+                message: 'Number of seats is required'
+            }
+
++ Request (application/json)
+
+        {
+           "location": "Maryland",
+            "destination": "ikeja",
+            "seats": 2 ,
+            "departure": "05",
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /users/rides
+
+    + Body
+    
+            {
+                valid: false,
+                message: 'Departure date is required'
+            }
+
 
 ### Get all available rides [GET /rides]
 
@@ -380,6 +468,20 @@ This is a basic route with the welcome message.
             }
 
 
++ Response 404 (application/json)
+
+    + Headers
+
+            Location: /rides/0
+
+    + Body
+            
+            {
+                success: false,
+                message: 'Specified ride with that id does not exist'
+            }
+
+
 ### Post a ride request  [POST /rides/1/requests]
 
 
@@ -394,6 +496,21 @@ This is a basic route with the welcome message.
             {
                 "success": true,
                 "message": "Ride request added successfully",
+            }
+
+
+
++ Response 404 (application/json)
+
+    + Headers
+
+            Location: /rides/0/requests
+
+    + Body
+    
+            {
+                 success: false,
+                message: 'Ride does not exist',
             }
 
 
@@ -424,6 +541,22 @@ This is a basic route with the welcome message.
             }
 
 
++ Response 404 (application/json)
+
+    + Headers
+
+            Location: /users/rides/0/requests
+
+    + Body
+    
+            {
+                success: false,
+                message: 'No ride request found',
+            }
+
+
+
+
 ### Update a ride request  [PUT /users/rides/5/requests/3]
  + Request (application/json)
 
@@ -442,4 +575,18 @@ This is a basic route with the welcome message.
             {
                 "success": true,
                 "message": "Ride request updated successfully",
+            }
+
+
++ Response 404 (application/json)
+
+    + Headers
+
+            Location: users/rides/0/requests/3
+
+    + Body
+    
+            {
+                success: false,
+                message: 'This request does not exist',
             }
