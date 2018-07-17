@@ -147,7 +147,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -174,7 +175,8 @@ describe('POST create new ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .post('/api/v1/users/rides')
           .send({
@@ -202,7 +204,8 @@ describe('GET all rides', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .get('/api/v1/rides')
           .set('Authorization', `Bearer ${token}`)
@@ -223,7 +226,8 @@ describe('GET a specific ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .get('/api/v1/rides/1')
           .set('Authorization', `Bearer ${token}`)
@@ -241,7 +245,8 @@ describe('GET a specific ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        ({ token } = res.body);
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .get('/api/v1/rides/112345')
           .set('Authorization', `Bearer ${token}`)
@@ -262,8 +267,8 @@ describe('POST request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-        // ({ token2 } = res.body.token);
         token2 = res.body.token;
+        console.log('token:', token2);
         request(app)
           .post('/api/v1/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
@@ -282,6 +287,7 @@ describe('POST request to get a ride', () => {
       })
       .end((err, res) => {
         token2 = res.body.token;
+        console.log('token:', token2);
         request(app)
           .post('/api/v1/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
@@ -304,6 +310,7 @@ describe('GET all request to get a ride', () => {
       .end((err, res) => {
         // ({ token2 } = res.body.token);
         token2 = res.body.token;
+        console.log('token:', token2);
         request(app)
           .get('/api/v1/users/rides/2/requests')
           .set('Authorization', `Bearer ${token2}`)
@@ -323,6 +330,7 @@ describe('GET all request to get a ride', () => {
       .end((err, res) => {
         // ({ token2 } = res.body.token);
         token2 = res.body.token;
+        console.log('token:', token2);
         request(app)
           .get('/api/v1/users/rides/0/requests')
           .set('Authorization', `Bearer ${token2}`)
@@ -343,7 +351,8 @@ describe('UPDATE Accept or reject a request to get a ride', () => {
         password: '123456',
       })
       .end((err, res) => {
-         token = res.body.token;
+        token = res.body.token;
+        console.log('token:', token);
         request(app)
           .put('/api/v1/users/rides/2/requests/9')
           .set('Authorization', `Bearer ${token}`)
