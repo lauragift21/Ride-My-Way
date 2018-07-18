@@ -31,7 +31,7 @@ export default {
         valid: false,
         message: 'Number of seats is required',
       });
-    } else if (!departure || /^\d{2}[./-]\d{2}[./-]\d{4}$/.test(departure) === false || /^\s+|\s+$/g.test(departure) === true) {
+    } else if (!departure || /^\d{4}[./-]\d{2}[./-]\d{2}$/.test(departure) === false || /^\s+|\s+$/g.test(departure) === true) {
       return res
         .status(400)
         .send({
