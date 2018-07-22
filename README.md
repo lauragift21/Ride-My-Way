@@ -16,7 +16,7 @@ Ride-My-Way is a carpooling application that provides drivers with the ability t
 
 ## Optional Features
 
-- Users can only see and respond to ride offers from their friends on the application .
+- Users can only see and respond to ride offers from their friends on the application.
 - Passengers get real time notifications when their request is accepted or rejected
 
 ## Technologies
@@ -69,7 +69,7 @@ yarn test
 
 ##
 
-API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1
+API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1  
 UI Template: https://lauragift21.github.io/Ride-My-Way/UI/index.html
 
 ## AUTHOR
