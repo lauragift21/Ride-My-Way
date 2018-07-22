@@ -89,7 +89,6 @@ export default {
     const { status } = req.body;
     db.query('SELECT * FROM requests WHERE rideid=$1 AND id=$2', [rideId, requestId], (err, result) => {
       if (err) {
-        console.log(err);
         res.status(500).json({
           message: 'Internal server error',
         });
@@ -101,7 +100,6 @@ export default {
       }
     });
     db.query('SELECT * FROM rides WHERE id=$1', [rideId], (err, result) => {
-      console.log(err, result);
       if (result.rows[0].userid !== userid) {
         return res.status(400).json({
           success: false,
