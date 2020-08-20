@@ -34,7 +34,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-register": "^6.26.0",
-    "bcrypt": "^2.0.1",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
